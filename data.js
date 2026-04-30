@@ -1310,137 +1310,2249 @@ const careerQuizPlayers = [
 ];
 
 // ============================================================
-// MISSING LINK PAIRS
+// MISSING LINK PAIRS - VERSÃO CORRIGIDA E EXPANDIDA
+// Apenas jogadores que REALMENTE jogaram nos dois clubes
 // ============================================================
 
 const missingLinkPairs = [
+
+  // ── CHELSEA ↔ REAL MADRID ──────────────────────────────────
   {
     club1: "Chelsea",
     club2: "Real Madrid",
-    answers: ["Arjen Robben", "Claude Makelele", "Nicolas Anelka", "Thibaut Courtois"]
+    answers: [
+      "Arjen Robben",
+      "Claude Makelele",
+      "Nicolas Anelka",
+      "Thibaut Courtois",
+      "Michael Essien",
+      "Ricardo Carvalho",
+      "Eden Hazard",
+      "Alvaro Morata",
+      "Mateo Kovacic",
+      "Antonio Rudiger",
+      "Lassana Diarra",
+      "Geremi",
+      "Kepa Arrizabalaga",
+      "Gonzalo Higuain",
+      "Samuel Eto'o"
+    ]
   },
+
+  // ── BARCELONA ↔ INTER MILAN ────────────────────────────────
   {
     club1: "Barcelona",
     club2: "Inter Milan",
-    answers: ["Zlatan Ibrahimovic", "Samuel Eto", "Ronaldo Nazario", "Adriano"]
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Samuel Eto'o",
+      "Ronaldo Nazario",
+      "Adriano",
+      "Ivan Rakitic",
+      "Alexis Sanchez",
+      "Arturo Vidal"
+    ]
   },
+
+  // ── MANCHESTER UNITED ↔ JUVENTUS ───────────────────────────
   {
     club1: "Manchester United",
     club2: "Juventus",
-    answers: ["Carlos Tevez", "Paul Pogba", "Massimo Taibi"]
+    answers: [
+      "Carlos Tevez",
+      "Paul Pogba",
+      "Cristiano Ronaldo",
+      "Massimo Taibi",
+      "Angelo Di Livio",
+      "Fabio",
+      "Patrice Evra"
+    ]
   },
+
+  // ── ARSENAL ↔ BARCELONA ────────────────────────────────────
   {
     club1: "Arsenal",
     club2: "Barcelona",
-    answers: ["Thierry Henry", "Marc Overmars", "Cesc Fabregas", "Alexander Hleb"]
+    answers: [
+      "Thierry Henry",
+      "Marc Overmars",
+      "Cesc Fabregas",
+      "Alexander Hleb",
+      "Giovanni van Bronckhorst",
+      "Patrick Kluivert",
+      "Aleksander Kolarov"
+    ]
   },
+
+  // ── BAYERN MUNICH ↔ MANCHESTER CITY ───────────────────────
   {
     club1: "Bayern Munich",
     club2: "Manchester City",
-    answers: ["Leroy Sane", "Robben"]
+    answers: [
+      "Leroy Sane",
+      "Joao Cancelo",
+      "Oleksandr Zinchenko",
+      "Jerome Boateng",
+      "Bernardo Silva"
+    ]
   },
+
+  // ── LIVERPOOL ↔ BARCELONA ─────────────────────────────────
   {
     club1: "Liverpool",
     club2: "Barcelona",
-    answers: ["Javier Mascherano", "Luis Suarez", "Dani Alves"]
+    answers: [
+      "Javier Mascherano",
+      "Luis Suarez",
+      "Philippe Coutinho",
+      "Luis Garcia",
+      "Steve McManaman",
+      "Xabi Alonso",
+      "Mark Hughes"
+    ]
   },
+
+  // ── PARIS SAINT-GERMAIN ↔ CHELSEA ─────────────────────────
   {
     club1: "Paris Saint-Germain",
     club2: "Chelsea",
-    answers: ["Nicolas Anelka", "David Luiz", "Thiago Silva"]
+    answers: [
+      "Nicolas Anelka",
+      "David Luiz",
+      "Thiago Silva",
+      "Willian",
+      "Bertrand Mazoue",
+      "Maxwell"
+    ]
   },
+
+  // ── AC MILAN ↔ JUVENTUS ────────────────────────────────────
   {
     club1: "AC Milan",
     club2: "Juventus",
-    answers: ["Zlatan Ibrahimovic", "Filippo Inzaghi", "Clarence Seedorf"]
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Filippo Inzaghi",
+      "Clarence Seedorf",
+      "Andrea Pirlo",
+      "Leonardo Bonucci",
+      "Gonzalo Higuain",
+      "Fabio Cannavaro",
+      "Didier Deschamps",
+      "Demetrio Albertini",
+      "Zinedine Zidane",
+      "Christian Vieri",
+      "Alessandro Del Piero"
+    ]
   },
+
+  // ── SANTOS ↔ BARCELONA ────────────────────────────────────
   {
-    club1: "Flamengo",
+    club1: "Santos",
     club2: "Barcelona",
-    answers: ["Neymar Jr", "Romario", "Ronaldo"]
+    answers: [
+      "Neymar Jr"
+    ]
   },
-  {
-    club1: "Borussia Dortmund",
-    club2: "Bayern Munich",
-    answers: ["Robert Lewandowski", "Mario Gotze", "Mats Hummels"]
-  },
-  {
-    club1: "Real Madrid",
-    club2: "Inter Milan",
-    answers: ["Ronaldo Nazario", "Clarence Seedorf", "Wesley Sneijder"]
-  },
-  {
-    club1: "AC Milan",
-    club2: "Barcelona",
-    answers: ["Ronaldinho", "Rivaldo", "Patrick Kluivert"]
-  },
-  {
-    club1: "Liverpool",
-    club2: "Chelsea",
-    answers: ["Fernando Torres", "Daniel Sturridge", "Solomon Kalou"]
-  },
-  {
-    club1: "Arsenal",
-    club2: "Real Madrid",
-    answers: ["Nicolas Anelka", "Jose Antonio Reyes"]
-  },
-  {
-    club1: "Atletico Madrid",
-    club2: "Chelsea",
-    answers: ["Thibaut Courtois", "Diego Costa", "Filipe Luis"]
-  },
-  {
-    club1: "Manchester City",
-    club2: "Real Madrid",
-    answers: ["Robinho", "Alvaro Morata"]
-  },
-  {
-    club1: "Roma",
-    club2: "Liverpool",
-    answers: ["Mohamed Salah", "Alisson Becker"]
-  },
-  {
-    club1: "Napoli",
-    club2: "Liverpool",
-    answers: ["Dossena"]
-  },
-  {
-    club1: "Benfica",
-    club2: "Manchester City",
-    answers: ["Ederson", "Nicolas Otamendi", "Ruben Dias"]
-  },
-  {
-    club1: "Borussia Dortmund",
-    club2: "Real Madrid",
-    answers: ["Jude Bellingham", "Nuri Sahin", "Achraf Hakimi"]
-  },
-  {
-    club1: "Flamengo",
-    club2: "Paris Saint-Germain",
-    answers: ["Neymar Jr"]
-  },
+
+  // ── SANTOS ↔ REAL MADRID ──────────────────────────────────
   {
     club1: "Santos",
     club2: "Real Madrid",
-    answers: ["Neymar Jr", "Robinho", "Rodrygo", "Endrick"]
+    answers: [
+      "Robinho",
+      "Rodrygo",
+      "Endrick",
+      "Pepe"
+    ]
   },
+
+  // ── FLAMENGO ↔ BARCELONA ──────────────────────────────────
+  {
+    club1: "Flamengo",
+    club2: "Barcelona",
+    answers: [
+      "Romario",
+      "Ronaldo Nazario"
+    ]
+  },
+
+  // ── BORUSSIA DORTMUND ↔ BAYERN MUNICH ─────────────────────
+  {
+    club1: "Borussia Dortmund",
+    club2: "Bayern Munich",
+    answers: [
+      "Robert Lewandowski",
+      "Mario Gotze",
+      "Mats Hummels",
+      "Sven Bender",
+      "Sebastian Rode",
+      "Pierre-Emerick Aubameyang",
+      "Thomas Muller"
+    ]
+  },
+
+  // ── REAL MADRID ↔ INTER MILAN ─────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Inter Milan",
+    answers: [
+      "Ronaldo Nazario",
+      "Clarence Seedorf",
+      "Wesley Sneijder",
+      "Roberto Carlos",
+      "Samuel Eto'o",
+      "Adriano",
+      "Ivan Cordoba",
+      "Christian Panucci"
+    ]
+  },
+
+  // ── AC MILAN ↔ BARCELONA ──────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Barcelona",
+    answers: [
+      "Ronaldinho",
+      "Rivaldo",
+      "Patrick Kluivert",
+      "Edgar Davids",
+      "Andres Iniesta",
+      "Zlatan Ibrahimovic",
+      "Samuel Eto'o"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ CHELSEA ────────────────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Chelsea",
+    answers: [
+      "Fernando Torres",
+      "Daniel Sturridge",
+      "Solomon Kalou",
+      "Glen Johnson",
+      "Nicolas Anelka",
+      "Tiago Mendes",
+      "Christian Ziege",
+      "Eidur Gudjohnsen"
+    ]
+  },
+
+  // ── ARSENAL ↔ REAL MADRID ─────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Real Madrid",
+    answers: [
+      "Nicolas Anelka",
+      "Jose Antonio Reyes",
+      "Julio Baptista",
+      "Fran Merida",
+      "Emmanuel Petit"
+    ]
+  },
+
+  // ── ATLETICO MADRID ↔ CHELSEA ─────────────────────────────
+  {
+    club1: "Atletico Madrid",
+    club2: "Chelsea",
+    answers: [
+      "Thibaut Courtois",
+      "Diego Costa",
+      "Filipe Luis",
+      "Marcos Alonso",
+      "Arda Turan"
+    ]
+  },
+
+  // ── MANCHESTER CITY ↔ REAL MADRID ─────────────────────────
+  {
+    club1: "Manchester City",
+    club2: "Real Madrid",
+    answers: [
+      "Robinho",
+      "Alvaro Morata",
+      "Sergio Aguero",
+      "Brahim Diaz",
+      "Alvaro Negredo"
+    ]
+  },
+
+  // ── ROMA ↔ LIVERPOOL ──────────────────────────────────────
+  {
+    club1: "Roma",
+    club2: "Liverpool",
+    answers: [
+      "Mohamed Salah",
+      "Alisson Becker",
+      "Emerson Palmieri",
+      "Antonio Rudiger"
+    ]
+  },
+
+  // ── BENFICA ↔ MANCHESTER CITY ─────────────────────────────
+  {
+    club1: "Benfica",
+    club2: "Manchester City",
+    answers: [
+      "Ederson",
+      "Nicolas Otamendi",
+      "Ruben Dias",
+      "Joao Cancelo",
+      "Bernardo Silva"
+    ]
+  },
+
+  // ── BORUSSIA DORTMUND ↔ REAL MADRID ───────────────────────
+  {
+    club1: "Borussia Dortmund",
+    club2: "Real Madrid",
+    answers: [
+      "Jude Bellingham",
+      "Nuri Sahin",
+      "Achraf Hakimi",
+      "Robert Lewandowski",
+      "Toni Kroos"
+    ]
+  },
+
+  // ── INTER MILAN ↔ MANCHESTER UNITED ───────────────────────
   {
     club1: "Inter Milan",
     club2: "Manchester United",
-    answers: ["Romelu Lukaku", "Henrik Larsson", "Kostas Manolas"]
+    answers: [
+      "Romelu Lukaku",
+      "Henrik Larsson",
+      "Maicon",
+      "Roy Keane",
+      "Matteo Darmian"
+    ]
   },
+
+  // ── PORTO ↔ CHELSEA ────────────────────────────────────────
   {
     club1: "Porto",
     club2: "Chelsea",
-    answers: ["Deco", "Jose Mourinho", "Ricardo Carvalho"]
+    answers: [
+      "Deco",
+      "Ricardo Carvalho",
+      "Petr Cech",
+      "Jose Mourinho",
+      "Paulo Ferreira",
+      "Michael Essien"
+    ]
   },
+
+  // ── JUVENTUS ↔ REAL MADRID ────────────────────────────────
   {
     club1: "Juventus",
     club2: "Real Madrid",
-    answers: ["Zinedine Zidane", "Fabio Cannavaro", "Roberto Carlos"]
-  }
-];
+    answers: [
+      "Zinedine Zidane",
+      "Fabio Cannavaro",
+      "Cristiano Ronaldo",
+      "Carlos Tevez",
+      "Roberto Carlos",
+      "Samuel Eto'o",
+      "Dani Alves",
+      "Sami Khedira",
+      "Alvaro Morata",
+      "Gonzalo Higuain",
+      "Paul Pogba"
+    ]
+  },
 
+  // ── MANCHESTER UNITED ↔ REAL MADRID ───────────────────────
+  {
+    club1: "Manchester United",
+    club2: "Real Madrid",
+    answers: [
+      "Cristiano Ronaldo",
+      "David Beckham",
+      "Ruud van Nistelrooy",
+      "Michael Owen",
+      "Angel Di Maria",
+      "Iker Casillas",
+      "Steve McManaman"
+    ]
+  },
+
+  // ── BARCELONA ↔ REAL MADRID ───────────────────────────────
+  {
+    club1: "Barcelona",
+    club2: "Real Madrid",
+    answers: [
+      "Ronaldo Nazario",
+      "Luis Figo",
+      "Michael Laudrup",
+      "Samuel Eto'o",
+      "Bernd Schuster",
+      "Hristo Stoichkov",
+      "Pep Guardiola",
+      "Johan Cruyff",
+      "Patrick Kluivert"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ MANCHESTER UNITED ─────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Manchester United",
+    answers: [
+      "Paul Ince",
+      "Michael Owen",
+      "Mark Hughes",
+      "Phil Chisnall",
+      "Peter Beardsley"
+    ]
+  },
+
+  // ── PSG ↔ BARCELONA ───────────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Barcelona",
+    answers: [
+      "Neymar Jr",
+      "Ronaldinho",
+      "Sylvinho",
+      "Dani Alves",
+      "Samuel Eto'o",
+      "Luis Enrique"
+    ]
+  },
+
+  // ── PSG ↔ REAL MADRID ─────────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Real Madrid",
+    answers: [
+      "Kylian Mbappe",
+      "Aurelien Tchouameni",
+      "Nicolas Anelka",
+      "Florentino Perez",
+      "Gonzalo Higuain",
+      "Thiago Silva",
+      "David Beckham",
+      "Sergio Ramos",
+    ]
+  },
+
+  // ── MANCHESTER CITY ↔ BARCELONA ───────────────────────────
+  {
+    club1: "Manchester City",
+    club2: "Barcelona",
+    answers: [
+      "Eric Garcia",
+      "Ferran Torres",
+      "Sergio Aguero",
+      "Yaya Toure",
+      "Aleksandar Kolarov"
+    ]
+  },
+
+  // ── ARSENAL ↔ JUVENTUS ────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Juventus",
+    answers: [
+      "Patrick Vieira",
+      "Cesc Fabregas",
+      "Emmanuel Petit",
+      "David Platt",
+      "John Hartson"
+    ]
+  },
+
+  // ── ARSENAL ↔ MANCHESTER CITY ─────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Manchester City",
+    answers: [
+      "Bacary Sagna",
+      "Samir Nasri",
+      "Emmanuel Adebayor",
+      "Kolo Toure",
+      "Gael Clichy",
+      "Nicolas Anelka"
+    ]
+  },
+
+  // ── ARSENAL ↔ CHELSEA ─────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Chelsea",
+    answers: [
+      "Ashley Cole",
+      "William Gallas",
+      "Nicolas Anelka",
+      "Cesc Fabregas",
+      "Petr Cech",
+      "Jody Morris"
+    ]
+  },
+
+  // ── ARSENAL ↔ MANCHESTER UNITED ───────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Manchester United",
+    answers: [
+      "Park Ju-young",
+      "Danny Welbeck",
+      "Robin van Persie",
+      "Juan Sebastian Veron",
+      "Andrei Kanchelskis"
+    ]
+  },
+
+  // ── BAYERN MUNICH ↔ BARCELONA ─────────────────────────────
+  {
+    club1: "Bayern Munich",
+    club2: "Barcelona",
+    answers: [
+      "Thiago Alcantara",
+      "Luis Enrique",
+      "Arturo Vidal",
+      "Ivan Rakitic",
+      "Samuel Eto'o",
+      "Robert Lewandowski"
+    ]
+  },
+
+  // ── BAYERN MUNICH ↔ REAL MADRID ───────────────────────────
+  {
+    club1: "Bayern Munich",
+    club2: "Real Madrid",
+    answers: [
+      "Arjen Robben",
+      "Toni Kroos",
+      "Xabi Alonso",
+      "Michael Reschke",
+      "Fernando Sanz"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ JUVENTUS ──────────────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Juventus",
+    answers: [
+      "Sami Hyypia",
+      "Vladimir Smicer",
+      "Emre Can",
+      "Xabi Alonso",
+      "Mohamed Salah"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ BARCELONA ─────────────────────────
+  {
+    club1: "Manchester United",
+    club2: "Barcelona",
+    answers: [
+      "Ronaldo Nazario",
+      "Mark Hughes",
+      "Gerard Pique",
+      "Henrik Larsson",
+      "Andersson Luiz"
+    ]
+  },
+
+  // ── CHELSEA ↔ JUVENTUS ────────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Juventus",
+    answers: [
+      "Carlos Tevez",
+      "Gonzalo Higuain",
+      "Jorginho",
+      "Emerson Palmieri",
+      "Daniele Rugani",
+      "Alvaro Morata"
+    ]
+  },
+
+  // ── ATLETICO MADRID ↔ BARCELONA ───────────────────────────
+  {
+    club1: "Atletico Madrid",
+    club2: "Barcelona",
+    answers: [
+      "Luis Suarez",
+      "Antoine Griezmann",
+      "Joao Felix",
+      "David Villa",
+      "Diego Forlan",
+      "Kiko",
+      "Ion Berindean"
+    ]
+  },
+
+  // ── ATLETICO MADRID ↔ REAL MADRID ─────────────────────────
+  {
+    club1: "Atletico Madrid",
+    club2: "Real Madrid",
+    answers: [
+      "Diego Costa",
+      "Radamel Falcao",
+      "Thibaut Courtois",
+      "Alvaro Morata",
+      "Fernando Torres",
+      "Saul Niguez",
+      "Juanfran",
+      "Joao Felix"
+    ]
+  },
+
+  // ── NAPOLI ↔ BARCELONA ────────────────────────────────────
+  {
+    club1: "Napoli",
+    club2: "Barcelona",
+    answers: [
+      "Dani Alves",
+      "Cesc Fabregas",
+      "Diego Maradona",
+      "Carles Alenya"
+    ]
+  },
+
+  // ── NAPOLI ↔ JUVENTUS ─────────────────────────────────────
+  {
+    club1: "Napoli",
+    club2: "Juventus",
+    answers: [
+      "Gonzalo Higuain",
+      "Fabio Cannavaro",
+      "Ciro Ferrara",
+      "Christian Maggio",
+      "Dries Mertens"
+    ]
+  },
+
+  // ── NAPOLI ↔ REAL MADRID ──────────────────────────────────
+  {
+    club1: "Napoli",
+    club2: "Real Madrid",
+    answers: [
+      "Fabio Cannavaro",
+      "Dries Mertens",
+      "Diego Maradona"
+    ]
+  },
+
+  // ── ROMA ↔ BARCELONA ──────────────────────────────────────
+  {
+    club1: "Roma",
+    club2: "Barcelona",
+    answers: [
+      "Dani Alves",
+      "Emerson Palmieri",
+      "Samuel Eto'o",
+      "Ivan De La Pena"
+    ]
+  },
+
+  // ── ROMA ↔ JUVENTUS ───────────────────────────────────────
+  {
+    club1: "Roma",
+    club2: "Juventus",
+    answers: [
+      "Daniele De Rossi",
+      "Paulo Dybala",
+      "Gabriel Batistuta",
+      "Emerson Palmieri",
+      "Antonio Cassano",
+      "Francesco Totti"
+    ]
+  },
+
+  // ── LAZIO ↔ JUVENTUS ──────────────────────────────────────
+  {
+    club1: "Lazio",
+    club2: "Juventus",
+    answers: [
+      "Miroslav Klose",
+      "Fernando Couto",
+      "Angelo Di Livio",
+      "Alessandro Nesta",
+      "Hernan Crespo"
+    ]
+  },
+
+  // ── AC MILAN ↔ INTER MILAN ────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Inter Milan",
+    answers: [
+      "Ronaldo Nazario",
+      "Zlatan Ibrahimovic",
+      "Roberto Baggio",
+      "Clarence Seedorf",
+      "Hernan Crespo",
+      "Christian Vieri",
+      "Dejan Savicevic",
+      "Karl-Heinz Rummenigge"
+    ]
+  },
+
+  // ── PORTO ↔ REAL MADRID ───────────────────────────────────
+  {
+    club1: "Porto",
+    club2: "Real Madrid",
+    answers: [
+      "Pepe",
+      "Joao Cancelo",
+      "Ivan Rakitic",
+      "Jose Mourinho",
+      "Fernando Sanz"
+    ]
+  },
+
+  // ── PORTO ↔ BARCELONA ─────────────────────────────────────
+  {
+    club1: "Porto",
+    club2: "Barcelona",
+    answers: [
+      "Deco",
+      "Ivan Rakitic",
+      "Joao Cancelo",
+      "Luis Enrique",
+      "Andres Iniesta"
+    ]
+  },
+
+  // ── PORTO ↔ JUVENTUS ──────────────────────────────────────
+  {
+    club1: "Porto",
+    club2: "Juventus",
+    answers: [
+      "Joao Cancelo",
+      "Alex Sandro",
+      "Deco",
+      "Fabio Coentrao"
+    ]
+  },
+
+  // ── BORUSSIA DORTMUND ↔ MANCHESTER UNITED ─────────────────
+  {
+    club1: "Borussia Dortmund",
+    club2: "Manchester United",
+    answers: [
+      "Jadon Sancho",
+      "Shinji Kagawa",
+      "Henrikh Mkhitaryan",
+      "Roy Carroll"
+    ]
+  },
+
+  // ── BORUSSIA DORTMUND ↔ BARCELONA ─────────────────────────
+  {
+    club1: "Borussia Dortmund",
+    club2: "Barcelona",
+    answers: [
+      "Ousmane Dembele",
+      "Marc Bartra",
+      "Ivan Rakitic",
+      "Yannick Carrasco"
+    ]
+  },
+
+  // ── BORUSSIA DORTMUND ↔ CHELSEA ───────────────────────────
+  {
+    club1: "Borussia Dortmund",
+    club2: "Chelsea",
+    answers: [
+      "Pierre-Emerick Aubameyang",
+      "Neven Subotic",
+      "Kevin De Bruyne",
+      "Demba Ba"
+    ]
+  },
+
+  // ── BORUSSIA DORTMUND ↔ JUVENTUS ──────────────────────────
+  {
+    club1: "Borussia Dortmund",
+    club2: "Juventus",
+    answers: [
+      "Sandro Wagner",
+      "Emre Can",
+      "Mats Hummels",
+      "Neven Subotic",
+      "Fernando Meira"
+    ]
+  },
+
+  // ── MANCHESTER CITY ↔ JUVENTUS ────────────────────────────
+  {
+    club1: "Manchester City",
+    club2: "Juventus",
+    answers: [
+      "Carlos Tevez",
+      "Alvaro Morata",
+      "Pablo Zabaleta",
+      "Samir Nasri",
+      "Fernandinho"
+    ]
+  },
+
+  // ── MANCHESTER CITY ↔ LIVERPOOL ───────────────────────────
+  {
+    club1: "Manchester City",
+    club2: "Liverpool",
+    answers: [
+      "Nicolas Anelka",
+      "Robbie Fowler",
+      "Steve McManaman",
+      "Daniel Sturridge",
+      "Emre Can",
+      "Raheem Sterling"
+    ]
+  },
+
+  // ── MANCHESTER CITY ↔ CHELSEA ─────────────────────────────
+  {
+    club1: "Manchester City",
+    club2: "Chelsea",
+    answers: [
+      "Nicolas Anelka",
+      "Shaun Wright-Phillips",
+      "Joe Cole",
+      "Robinho",
+      "Danilo",
+      "Frank Lampard"
+    ]
+  },
+
+  // ── MANCHESTER CITY ↔ MANCHESTER UNITED ───────────────────
+  {
+    club1: "Manchester City",
+    club2: "Manchester United",
+    answers: [
+      "Carlos Tevez",
+      "Peter Schmeichel",
+      "Andy Cole",
+      "Denis Law",
+      "Kleberson",
+      "Owen Hargreaves",
+      "Michael Vonk"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ REAL MADRID ───────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Real Madrid",
+    answers: [
+      "Gareth Bale",
+      "Luka Modric",
+      "Emmanuel Adebayor",
+      "Pedro Leon"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ BARCELONA ─────────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Barcelona",
+    answers: [
+      "Ossie Ardiles",
+      "Jimmy Floyd Hasselbaink",
+      "Rafael van der Vaart"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ CHELSEA ───────────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Chelsea",
+    answers: [
+      "William Gallas",
+      "Joe Cole",
+      "Carlo Cudicini",
+      "Pat Jennings",
+      "Clive Walker"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ MANCHESTER UNITED ─────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Manchester United",
+    answers: [
+      "Dimitar Berbatov",
+      "Michael Carrick",
+      "Robbie Keane",
+      "Martin Jol"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ ARSENAL ───────────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Arsenal",
+    answers: [
+      "David Bentley",
+      "Sol Campbell",
+      "Emmanuel Adebayor",
+      "Pat Jennings",
+      "Jermaine Defoe"
+    ]
+  },
+
+  // ── AJAX ↔ BARCELONA ──────────────────────────────────────
+  {
+    club1: "Ajax",
+    club2: "Barcelona",
+    answers: [
+      "Johan Cruyff",
+      "Marc Overmars",
+      "Ronald Koeman",
+      "Frank de Boer",
+      "Patrick Kluivert",
+      "Davinson Sanchez",
+      "Frenkie de Jong"
+    ]
+  },
+
+  // ── AJAX ↔ REAL MADRID ────────────────────────────────────
+  {
+    club1: "Ajax",
+    club2: "Real Madrid",
+    answers: [
+      "Clarence Seedorf",
+      "Johan Cruyff",
+      "Wesley Sneijder",
+      "Daley Blind",
+      "Noussair Mazraoui"
+    ]
+  },
+
+  // ── AJAX ↔ JUVENTUS ───────────────────────────────────────
+  {
+    club1: "Ajax",
+    club2: "Juventus",
+    answers: [
+      "Edgar Davids",
+      "Patrick Kluivert",
+      "Dusan Tadic",
+      "Matthijs de Ligt",
+      "Sandro"
+    ]
+  },
+
+  // ── AJAX ↔ INTER MILAN ────────────────────────────────────
+  {
+    club1: "Ajax",
+    club2: "Inter Milan",
+    answers: [
+      "Clarence Seedorf",
+      "Sandro Mazzola",
+      "Denilson",
+      "Stefan de Vrij",
+      "Lasse Schone"
+    ]
+  },
+
+  // ── AJAX ↔ MANCHESTER UNITED ──────────────────────────────
+  {
+    club1: "Ajax",
+    club2: "Manchester United",
+    answers: [
+      "Daley Blind",
+      "Donny van de Beek",
+      "Quinton Fortune",
+      "Jaap Stam",
+      "Edwin van der Sar"
+    ]
+  },
+
+  // ── AJAX ↔ CHELSEA ────────────────────────────────────────
+  {
+    club1: "Ajax",
+    club2: "Chelsea",
+    answers: [
+      "Marc Overmars",
+      "Hakim Ziyech",
+      "Winston Bogarde",
+      "Tijjani Reijnders"
+    ]
+  },
+
+  // ── VALENCIA ↔ BARCELONA ──────────────────────────────────
+  {
+    club1: "Valencia",
+    club2: "Barcelona",
+    answers: [
+      "David Villa",
+      "Juan Mata",
+      "Gaizka Mendieta",
+      "Claudio Lopez",
+      "Ferran Torres"
+    ]
+  },
+
+  // ── VALENCIA ↔ REAL MADRID ────────────────────────────────
+  {
+    club1: "Valencia",
+    club2: "Real Madrid",
+    answers: [
+      "David Villa",
+      "Gaizka Mendieta",
+      "Alvaro Negredo",
+      "Fernando Hierro",
+      "Michael Laudrup"
+    ]
+  },
+
+  // ── SEVILLA ↔ BARCELONA ───────────────────────────────────
+  {
+    club1: "Sevilla",
+    club2: "Barcelona",
+    answers: [
+      "Dani Alves",
+      "Ivan Rakitic",
+      "Cesc Fabregas",
+      "Pedro",
+      "Adriano Correia",
+      "Sergio Escudero"
+    ]
+  },
+
+  // ── SEVILLA ↔ REAL MADRID ─────────────────────────────────
+  {
+    club1: "Sevilla",
+    club2: "Real Madrid",
+    answers: [
+      "Sergio Ramos",
+      "Jesus Navas",
+      "Ivan Rakitic",
+      "Dani Alves"
+    ]
+  },
+
+  // ── LYON ↔ BARCELONA ──────────────────────────────────────
+  {
+    club1: "Lyon",
+    club2: "Barcelona",
+    answers: [
+      "Samuel Umtiti",
+      "Eric Abidal",
+      "Juninho",
+      "Maxwel Cornet"
+    ]
+  },
+
+  // ── LYON ↔ JUVENTUS ───────────────────────────────────────
+  {
+    club1: "Lyon",
+    club2: "Juventus",
+    answers: [
+      "Karim Benzema",
+      "Claudio Caçapa",
+      "Jean-Alain Boumsong"
+    ]
+  },
+
+  // ── MARSEILLE ↔ BARCELONA ─────────────────────────────────
+  {
+    club1: "Marseille",
+    club2: "Barcelona",
+    answers: [
+      "Samir Nasri",
+      "Samuel Eto'o",
+      "Ronaldinho",
+      "Franck Ribery"
+    ]
+  },
+
+  // ── MARSEILLE ↔ JUVENTUS ──────────────────────────────────
+  {
+    club1: "Marseille",
+    club2: "Juventus",
+    answers: [
+      "Samir Nasri",
+      "Didier Deschamps",
+      "Roberto Bettega",
+      "Roger Magnusson"
+    ]
+  },
+
+  // ── SPORTING CP ↔ MANCHESTER UNITED ───────────────────────
+  {
+    club1: "Sporting CP",
+    club2: "Manchester United",
+    answers: [
+      "Cristiano Ronaldo",
+      "Nani",
+      "Luis Figo",
+      "Manuel Fernandes"
+    ]
+  },
+
+  // ── SPORTING CP ↔ REAL MADRID ─────────────────────────────
+  {
+    club1: "Sporting CP",
+    club2: "Real Madrid",
+    answers: [
+      "Cristiano Ronaldo",
+      "Luis Figo",
+      "Nani"
+    ]
+  },
+
+  // ── SPORTING CP ↔ JUVENTUS ────────────────────────────────
+  {
+    club1: "Sporting CP",
+    club2: "Juventus",
+    answers: [
+      "Cristiano Ronaldo",
+      "Luis Figo",
+      "Joao Palhinha"
+    ]
+  },
+
+  // ── FLAMENGO ↔ REAL MADRID ────────────────────────────────
+  {
+    club1: "Flamengo",
+    club2: "Real Madrid",
+    answers: [
+      "Romario",
+      "Ronaldo Nazario",
+      "Reinaldo",
+      "Vinicius Jr"
+    ]
+  },
+
+  // ── FLAMENGO ↔ INTER MILAN ────────────────────────────────
+  {
+    club1: "Flamengo",
+    club2: "Inter Milan",
+    answers: [
+      "Adriano",
+      "Ronaldo Nazario",
+      "Renato Gaucho"
+    ]
+  },
+
+  // ── FLAMENGO ↔ PSG ────────────────────────────────────────
+  {
+    club1: "Flamengo",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Leonardo",
+      "Vitor Roque",
+      "Lucas Moura"
+    ]
+  },
+
+  // ── CORINTHIANS ↔ REAL MADRID ─────────────────────────────
+  {
+    club1: "Corinthians",
+    club2: "Real Madrid",
+    answers: [
+      "Ronaldo Nazario",
+      "Clarence Seedorf",
+      "Emerson"
+    ]
+  },
+
+  // ── CORINTHIANS ↔ BARCELONA ───────────────────────────────
+  {
+    club1: "Corinthians",
+    club2: "Barcelona",
+    answers: [
+      "Ronaldo Nazario",
+      "Rivaldo"
+    ]
+  },
+
+  // ── SAO PAULO ↔ BARCELONA ─────────────────────────────────
+  {
+    club1: "Sao Paulo",
+    club2: "Barcelona",
+    answers: [
+      "Dani Alves",
+      "Cafu",
+      "Rogerio Ceni"
+    ]
+  },
+
+  // ── SAO PAULO ↔ JUVENTUS ──────────────────────────────────
+  {
+    club1: "Sao Paulo",
+    club2: "Juventus",
+    answers: [
+      "Dani Alves",
+      "Luis Fabiano",
+      "Cafu"
+    ]
+  },
+
+  // ── BOCA JUNIORS ↔ BARCELONA ──────────────────────────────
+  {
+    club1: "Boca Juniors",
+    club2: "Barcelona",
+    answers: [
+      "Diego Maradona",
+      "Marcelo Delgado",
+      "Carlos Tevez"
+    ]
+  },
+
+  // ── BOCA JUNIORS ↔ REAL MADRID ────────────────────────────
+  {
+    club1: "Boca Juniors",
+    club2: "Real Madrid",
+    answers: [
+      "Carlos Tevez",
+      "Juan Roman Riquelme",
+      "Sergio Aguero"
+    ]
+  },
+
+  // ── RIVER PLATE ↔ REAL MADRID ─────────────────────────────
+  {
+    club1: "River Plate",
+    club2: "Real Madrid",
+    answers: [
+      "Marcelo Gallardo",
+      "Radamel Falcao",
+      "Fernando Morientes",
+      "Ariel Ortega"
+    ]
+  },
+
+  // ── RIVER PLATE ↔ BARCELONA ───────────────────────────────
+  {
+    club1: "River Plate",
+    club2: "Barcelona",
+    answers: [
+      "Javier Saviola",
+      "Pablo Aimar",
+      "Facundo Roncaglia"
+    ]
+  },
+
+  // ── INTER MILAN ↔ BARCELONA ───────────────────────────────
+  {
+    club1: "Inter Milan",
+    club2: "Barcelona",
+    answers: [
+      "Samuel Eto'o",
+      "Zlatan Ibrahimovic",
+      "Ronaldo Nazario",
+      "Sergio Busquets",
+      "David Villa"
+    ]
+  },
+
+  // ── INTER MILAN ↔ JUVENTUS ────────────────────────────────
+  {
+    club1: "Inter Milan",
+    club2: "Juventus",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Roberto Baggio",
+      "Filippo Inzaghi",
+      "Hernan Crespo",
+      "Christian Vieri",
+      "Ronaldo Nazario",
+      "Fabio Cannavaro"
+    ]
+  },
+
+  // ── INTER MILAN ↔ REAL MADRID ─────────────────────────────
+  {
+    club1: "Inter Milan",
+    club2: "Real Madrid",
+    answers: [
+      "Ronaldo Nazario",
+      "Clarence Seedorf",
+      "Wesley Sneijder",
+      "Adriano",
+      "Ivan Cordoba"
+    ]
+  },
+
+  // ── INTER MILAN ↔ CHELSEA ─────────────────────────────────
+  {
+    club1: "Inter Milan",
+    club2: "Chelsea",
+    answers: [
+      "Romelu Lukaku",
+      "Ivan Perisic",
+      "Nicolas Anelka",
+      "Roy Makaay"
+    ]
+  },
+
+  // ── INTER MILAN ↔ PSG ─────────────────────────────────────
+  {
+    club1: "Inter Milan",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Thiago Motta",
+      "Maxwell",
+      "Mauro Icardi"
+    ]
+  },
+
+  // ── NAPOLI ↔ PSG ──────────────────────────────────────────
+  {
+    club1: "Napoli",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Dries Mertens",
+      "Edinson Cavani",
+      "Gokhan Inler"
+    ]
+  },
+
+  // ── NAPOLI ↔ MANCHESTER CITY ──────────────────────────────
+  {
+    club1: "Napoli",
+    club2: "Manchester City",
+    answers: [
+      "Bacary Sagna",
+      "Fabian Ruiz",
+      "Dries Mertens"
+    ]
+  },
+
+  // ── CHELSEA ↔ BARCELONA ───────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Barcelona",
+    answers: [
+      "Cesc Fabregas",
+      "Samuel Eto'o",
+      "Marc Overmars",
+      "Patrick Kluivert",
+      "Thierry Henry"
+    ]
+  },
+
+  // ── SCHALKE ↔ REAL MADRID ─────────────────────────────────
+  {
+    club1: "Schalke 04",
+    club2: "Real Madrid",
+    answers: [
+      "Raul Gonzalez",
+      "Klaas-Jan Huntelaar",
+      "Nuri Sahin"
+    ]
+  },
+
+  // ── WOLFSBURG ↔ REAL MADRID ───────────────────────────────
+  {
+    club1: "Wolfsburg",
+    club2: "Real Madrid",
+    answers: [
+      "Pepe",
+      "Ricardo Carvalho"
+    ]
+  },
+
+  // ── MONACO ↔ JUVENTUS ─────────────────────────────────────
+  {
+    club1: "Monaco",
+    club2: "Juventus",
+    answers: [
+      "Fabinho",
+      "Thomas Lemar",
+      "Kylian Mbappe",
+      "Bernardo Silva"
+    ]
+  },
+
+  // ── MONACO ↔ REAL MADRID ──────────────────────────────────
+  {
+    club1: "Monaco",
+    club2: "Real Madrid",
+    answers: [
+      "Kylian Mbappe",
+      "Fabinho",
+      "Bernardo Silva",
+      "Thomas Lemar"
+    ]
+  },
+
+  // ── MONACO ↔ BARCELONA ────────────────────────────────────
+  {
+    club1: "Monaco",
+    club2: "Barcelona",
+    answers: [
+      "Thierry Henry",
+      "Kylian Mbappe",
+      "Bernardo Silva"
+    ]
+  },
+
+  // ── MONACO ↔ MANCHESTER CITY ──────────────────────────────
+  {
+    club1: "Monaco",
+    club2: "Manchester City",
+    answers: [
+      "Benjamin Mendy",
+      "Bernardo Silva",
+      "Leroy Sane"
+    ]
+  },
+
+  // ── LEICESTER ↔ MANCHESTER UNITED ─────────────────────────
+  {
+    club1: "Leicester City",
+    club2: "Manchester United",
+    answers: [
+      "Danny Drinkwater",
+      "Wes Morgan",
+      "Ben Chilwell"
+    ]
+  },
+
+  // ── WEST HAM ↔ MANCHESTER UNITED ──────────────────────────
+  {
+    club1: "West Ham",
+    club2: "Manchester United",
+    answers: [
+      "Carlos Tevez",
+      "Mark Noble",
+      "Javier Hernandez",
+      "Paul Ince"
+    ]
+  },
+
+  // ── WEST HAM ↔ CHELSEA ────────────────────────────────────
+  {
+    club1: "West Ham",
+    club2: "Chelsea",
+    answers: [
+      "Joe Cole",
+      "Carlton Cole",
+      "Scott Minto",
+      "Frank Lampard"
+    ]
+  },
+
+  // ── EVERTON ↔ MANCHESTER UNITED ───────────────────────────
+  {
+    club1: "Everton",
+    club2: "Manchester United",
+    answers: [
+      "Wayne Rooney",
+      "Phil Neville",
+      "Gary Neville",
+      "Peter Reid",
+      "Tim Howard"
+    ]
+  },
+
+  // ── EVERTON ↔ CHELSEA ─────────────────────────────────────
+  {
+    club1: "Everton",
+    club2: "Chelsea",
+    answers: [
+      "Wayne Rooney",
+      "Tim Cahill",
+      "Marouane Fellaini",
+      "John Collins"
+    ]
+  },
+
+  // ── NEWCASTLE ↔ MANCHESTER UNITED ─────────────────────────
+  {
+    club1: "Newcastle United",
+    club2: "Manchester United",
+    answers: [
+      "Andy Cole",
+      "Michael Owen",
+      "Alan Shearer",
+      "Nobby Solano"
+    ]
+  },
+
+  // ── NEWCASTLE ↔ REAL MADRID ───────────────────────────────
+  {
+    club1: "Newcastle United",
+    club2: "Real Madrid",
+    answers: [
+      "Ruud Gullit",
+      "Michael Owen",
+      "Jonathan Woodgate"
+    ]
+  },
+
+  // ── BAYER LEVERKUSEN ↔ BARCELONA ──────────────────────────
+  {
+    club1: "Bayer Leverkusen",
+    club2: "Barcelona",
+    answers: [
+      "Ze Roberto",
+      "Emerson",
+      "Lucio",
+      "Dimitar Berbatov"
+    ]
+  },
+
+  // ── BAYER LEVERKUSEN ↔ REAL MADRID ────────────────────────
+  {
+    club1: "Bayer Leverkusen",
+    club2: "Real Madrid",
+    answers: [
+      "Ze Roberto",
+      "Lucio",
+      "Bernd Schuster"
+    ]
+  },
+
+  // ── ATLETICO MADRID ↔ JUVENTUS ────────────────────────────
+  {
+    club1: "Atletico Madrid",
+    club2: "Juventus",
+    answers: [
+      "Alvaro Morata",
+      "Gonzalo Higuain",
+      "Diego Forlan",
+      "Stefan Savic"
+    ]
+  },
+
+  // ── ATLETICO MADRID ↔ MANCHESTER UNITED ───────────────────
+  {
+    club1: "Atletico Madrid",
+    club2: "Manchester United",
+    answers: [
+      "Diego Forlan",
+      "Radamel Falcao",
+      "Fernando Torres",
+      "Alvaro Morata"
+    ]
+  },
+
+  // ── PSG ↔ JUVENTUS ────────────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Juventus",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Emerson Palmieri",
+      "Blaise Matuidi",
+      "Gigi Buffon",
+      "Angel Di Maria"
+    ]
+  },
+
+  // ── PSG ↔ MANCHESTER UNITED ───────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Manchester United",
+    answers: [
+      "Angel Di Maria",
+      "Javier Pastore",
+      "David Ginola"
+    ]
+  },
+
+  // ── PSG ↔ MANCHESTER CITY ─────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Manchester City",
+    answers: [
+      "Nicolas Anelka",
+      "Fernandinho",
+      "Javi Garcia"
+    ]
+  },
+
+  // ── PSG ↔ INTER MILAN ─────────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Inter Milan",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Mauro Icardi",
+      "Maxwell",
+      "Thiago Motta"
+    ]
+  },
+
+  // ── PSG ↔ ARSENAL ─────────────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Arsenal",
+    answers: [
+      "Nicolas Anelka",
+      "David Luiz",
+      "Samir Nasri"
+    ]
+  },
+
+  // ── PSG ↔ LIVERPOOL ───────────────────────────────────────
+  {
+    club1: "Paris Saint-Germain",
+    club2: "Liverpool",
+    answers: [
+      "Nicolas Anelka",
+      "David Ginola",
+      "Virgil van Dijk"
+    ]
+  },
+
+  // ── JUVENTUS ↔ INTER MILAN ────────────────────────────────
+  {
+    club1: "Juventus",
+    club2: "Inter Milan",
+    answers: [
+      "Roberto Baggio",
+      "Zlatan Ibrahimovic",
+      "Ronaldo Nazario",
+      "Hernan Crespo",
+      "Christian Vieri",
+      "Fabio Cannavaro",
+      "Filippo Inzaghi"
+    ]
+  },
+
+  // ── JUVENTUS ↔ MANCHESTER UNITED ──────────────────────────
+  {
+    club1: "Juventus",
+    club2: "Manchester United",
+    answers: [
+      "Carlos Tevez",
+      "Paul Pogba",
+      "Cristiano Ronaldo",
+      "Massimo Taibi",
+      "Patrice Evra"
+    ]
+  },
+
+  // ── BARCELONA ↔ JUVENTUS ──────────────────────────────────
+  {
+    club1: "Barcelona",
+    club2: "Juventus",
+    answers: [
+      "Dani Alves",
+      "Ivan Rakitic",
+      "Samuel Eto'o",
+      "Ronaldinho",
+      "Luis Enrique",
+      "Zinedine Zidane",
+      "Patrick Kluivert"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ REAL MADRID ───────────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Real Madrid",
+    answers: [
+      "Steve McManaman",
+      "Robbie Fowler",
+      "Michael Owen",
+      "Emre Can",
+      "Alvaro Morata"
+    ]
+  },
+
+  // ── ARSENAL ↔ INTER MILAN ─────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Inter Milan",
+    answers: [
+      "Patrick Vieira",
+      "Nicolas Anelka",
+      "Emmanuel Petit",
+      "Sulley Muntari"
+    ]
+  },
+
+  // ── CHELSEA ↔ INTER MILAN ─────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Inter Milan",
+    answers: [
+      "Romelu Lukaku",
+      "Samuel Eto'o",
+      "Ivan Perisic",
+      "Nicolas Anelka"
+    ]
+  },
+
+  // ── CHELSEA ↔ ATLETICO MADRID ─────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Atletico Madrid",
+    answers: [
+      "Thibaut Courtois",
+      "Diego Costa",
+      "Filipe Luis",
+      "Marcos Alonso",
+      "Fernando Torres"
+    ]
+  },
+
+  // ── CHELSEA ↔ PSG ─────────────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Nicolas Anelka",
+      "Thiago Silva",
+      "David Luiz",
+      "Willian"
+    ]
+  },
+
+  // ── CHELSEA ↔ ARSENAL ─────────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Arsenal",
+    answers: [
+      "Ashley Cole",
+      "William Gallas",
+      "Nicolas Anelka",
+      "Cesc Fabregas",
+      "Petr Cech",
+      "Thierry Henry"
+    ]
+  },
+
+  // ── CHELSEA ↔ AC MILAN ────────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "AC Milan",
+    answers: [
+      "Gonzalo Higuain",
+      "Zola",
+      "Roberto Di Matteo",
+      "Andrei Shevchenko",
+      "Jimmy Floyd Hasselbaink"
+    ]
+  },
+
+  // ── CHELSEA ↔ LIVERPOOL ───────────────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Liverpool",
+    answers: [
+      "Fernando Torres",
+      "Daniel Sturridge",
+      "Nicolas Anelka",
+      "Glen Johnson",
+      "Tiago Mendes"
+    ]
+  },
+
+  // ── CHELSEA ↔ MANCHESTER UNITED ───────────────────────────
+  {
+    club1: "Chelsea",
+    club2: "Manchester United",
+    answers: [
+      "Juan Mata",
+      "Nemanja Matic",
+      "Andy Cole",
+      "Mark Hughes",
+      "Henrikh Mkhitaryan"
+    ]
+  },
+
+  // ── REAL MADRID ↔ BARCELONA (CLASICOS TRANSFERS) ──────────
+  {
+    club1: "Real Madrid",
+    club2: "Barcelona",
+    answers: [
+      "Luis Figo",
+      "Samuel Eto'o",
+      "Ronaldo Nazario",
+      "Michael Laudrup",
+      "Bernd Schuster",
+      "Johan Cruyff",
+      "Patrick Kluivert",
+      "Hristo Stoichkov"
+    ]
+  },
+
+  // ── REAL MADRID ↔ MANCHESTER UNITED ───────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Manchester United",
+    answers: [
+      "Cristiano Ronaldo",
+      "David Beckham",
+      "Ruud van Nistelrooy",
+      "Michael Owen",
+      "Angel Di Maria"
+    ]
+  },
+
+  // ── REAL MADRID ↔ JUVENTUS ────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Juventus",
+    answers: [
+      "Zinedine Zidane",
+      "Fabio Cannavaro",
+      "Cristiano Ronaldo",
+      "Carlos Tevez",
+      "Sami Khedira",
+      "Alvaro Morata",
+      "Roberto Carlos",
+      "Gonzalo Higuain"
+    ]
+  },
+
+  // ── REAL MADRID ↔ ATLETICO MADRID ─────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Atletico Madrid",
+    answers: [
+      "Alvaro Morata",
+      "Thibaut Courtois",
+      "Joao Felix",
+      "Fernando Torres",
+      "Diego Costa",
+      "Radamel Falcao"
+    ]
+  },
+
+  // ── REAL MADRID ↔ SEVILLA ─────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Sevilla",
+    answers: [
+      "Sergio Ramos",
+      "Jesus Navas",
+      "Dani Alves",
+      "Ivan Rakitic"
+    ]
+  },
+
+  // ── REAL MADRID ↔ TOTTENHAM ───────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Tottenham",
+    answers: [
+      "Gareth Bale",
+      "Luka Modric",
+      "Emmanuel Adebayor"
+    ]
+  },
+
+  // ── REAL MADRID ↔ AC MILAN ────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "AC Milan",
+    answers: [
+      "Clarence Seedorf",
+      "Roberto Carlos",
+      "Ronaldo Nazario",
+      "Fabio Cannavaro",
+      "Fernando Redondo",
+      "Christian Panucci"
+    ]
+  },
+
+  // ── REAL MADRID ↔ PSG ─────────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Kylian Mbappe",
+      "Aurelien Tchouameni",
+      "Nicolas Anelka"
+    ]
+  },
+
+  // ── REAL MADRID ↔ LIVERPOOL ───────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Liverpool",
+    answers: [
+      "Steve McManaman",
+      "Michael Owen",
+      "Robbie Fowler",
+      "Alvaro Morata"
+    ]
+  },
+
+  // ── REAL MADRID ↔ ARSENAL ─────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Arsenal",
+    answers: [
+      "Nicolas Anelka",
+      "Jose Antonio Reyes",
+      "Julio Baptista"
+    ]
+  },
+
+  // ── REAL MADRID ↔ BORUSSIA DORTMUND ───────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Borussia Dortmund",
+    answers: [
+      "Jude Bellingham",
+      "Nuri Sahin",
+      "Achraf Hakimi",
+      "Toni Kroos"
+    ]
+  },
+
+  // ── REAL MADRID ↔ PORTO ───────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Porto",
+    answers: [
+      "Pepe",
+      "Joao Cancelo",
+      "Ricardo Carvalho",
+      "Jose Mourinho"
+    ]
+  },
+
+  // ── REAL MADRID ↔ SCHALKE ─────────────────────────────────
+  {
+    club1: "Real Madrid",
+    club2: "Schalke 04",
+    answers: [
+      "Raul Gonzalez",
+      "Klaas-Jan Huntelaar",
+      "Nuri Sahin"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ LIVERPOOL ─────────────────────────
+  {
+    club1: "Manchester United",
+    club2: "Liverpool",
+    answers: [
+      "Paul Ince",
+      "Michael Owen",
+      "Mark Hughes",
+      "Peter Beardsley",
+      "Phil Chisnall"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ CHELSEA ───────────────────────────
+  {
+    club1: "Manchester United",
+    club2: "Chelsea",
+    answers: [
+      "Juan Mata",
+      "Nemanja Matic",
+      "Mark Hughes",
+      "Roy Carroll",
+      "Andy Cole"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ MANCHESTER CITY ───────────────────
+  {
+    club1: "Manchester United",
+    club2: "Manchester City",
+    answers: [
+      "Carlos Tevez",
+      "Peter Schmeichel",
+      "Andy Cole",
+      "Denis Law",
+      "Owen Hargreaves"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ ARSENAL ───────────────────────────
+  {
+    club1: "Manchester United",
+    club2: "Arsenal",
+    answers: [
+      "Robin van Persie",
+      "Danny Welbeck",
+      "Andrei Kanchelskis",
+      "Park Ju-young"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ AC MILAN ──────────────────────────
+  {
+    club1: "Manchester United",
+    club2: "AC Milan",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Anderson Luiz",
+      "Juan Mata",
+      "Roy Makaay"
+    ]
+  },
+
+  // ── MANCHESTER UNITED ↔ ATLETICO MADRID ───────────────────
+  {
+    club1: "Manchester United",
+    club2: "Atletico Madrid",
+    answers: [
+      "Radamel Falcao",
+      "Diego Forlan",
+      "Fernando Torres"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ ARSENAL ───────────────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Arsenal",
+    answers: [
+      "Nicolas Anelka",
+      "Michael Thomas",
+      "David Bentley",
+      "Jermaine Pennant",
+      "Emile Heskey"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ ATLETICO MADRID ───────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Atletico Madrid",
+    answers: [
+      "Fernando Torres",
+      "Luis Garcia",
+      "Alvaro Negredo"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ MANCHESTER CITY ───────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Manchester City",
+    answers: [
+      "Raheem Sterling",
+      "Robbie Fowler",
+      "Steve McManaman",
+      "Nicolas Anelka",
+      "Daniel Sturridge"
+    ]
+  },
+
+  // ── LIVERPOOL ↔ PSG ───────────────────────────────────────
+  {
+    club1: "Liverpool",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Nicolas Anelka",
+      "David Ginola"
+    ]
+  },
+
+  // ── ARSENAL ↔ PSG ─────────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Nicolas Anelka",
+      "David Luiz",
+      "Samir Nasri"
+    ]
+  },
+
+  // ── ARSENAL ↔ ATLETICO MADRID ─────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Atletico Madrid",
+    answers: [
+      "Jose Antonio Reyes",
+      "Julio Baptista",
+      "David Villa"
+    ]
+  },
+
+  // ── ARSENAL ↔ AC MILAN ────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "AC Milan",
+    answers: [
+      "Andrei Shevchenko",
+      "Patrick Vieira",
+      "Freddie Ljungberg"
+    ]
+  },
+
+  // ── ARSENAL ↔ SEVILLA ─────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Sevilla",
+    answers: [
+      "Jose Antonio Reyes",
+      "Dani Alves",
+      "Julio Baptista"
+    ]
+  },
+
+  // ── ARSENAL ↔ PORTO ───────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Porto",
+    answers: [
+      "Deco",
+      "Emmanuel Petit",
+      "Patrick Vieira"
+    ]
+  },
+
+  // ── ARSENAL ↔ LYON ────────────────────────────────────────
+  {
+    club1: "Arsenal",
+    club2: "Lyon",
+    answers: [
+      "Bacary Sagna",
+      "Samir Nasri",
+      "Mouhamadou Dabo"
+    ]
+  },
+
+  // ── AC MILAN ↔ REAL MADRID ────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Real Madrid",
+    answers: [
+      "Ronaldo Nazario",
+      "Clarence Seedorf",
+      "Fernando Redondo",
+      "Christian Panucci",
+      "Kaka",
+      "Robinho",
+      "David Beckham",
+      "Theo Hernandez",
+      "Brahim Diaz",
+      "Gonzalo Higuain",
+      "Diego Lopez",
+      "Alvaro Morata",
+      "Klaas-Jan Huntelaar",
+      "Antonio Cassano",
+      "Luka Jovic",
+      "Emerson"
+    ]
+  },
+
+  // ── AC MILAN ↔ CHELSEA ────────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Chelsea",
+    answers: [
+      "Andrei Shevchenko",
+      "Gonzalo Higuain",
+      "Roberto Di Matteo"
+    ]
+  },
+
+  // ── AC MILAN ↔ MANCHESTER UNITED ──────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Manchester United",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Juan Mata",
+      "Roy Makaay"
+    ]
+  },
+
+  // ── AC MILAN ↔ PSG ────────────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Paris Saint-Germain",
+    answers: [
+      "Zlatan Ibrahimovic",
+      "Gianluigi Donnarumma",
+      "Maxwell"
+    ]
+  },
+
+  // ── AC MILAN ↔ LIVERPOOL ──────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Liverpool",
+    answers: [
+      "Robbie Fowler",
+      "Vladimir Smicer",
+      "Jan Molby"
+    ]
+  },
+
+  // ── AC MILAN ↔ ARSENAL ────────────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Arsenal",
+    answers: [
+      "Andrei Shevchenko",
+      "Patrick Vieira",
+      "Freddie Ljungberg"
+    ]
+  },
+
+  // ── AC MILAN ↔ ATLETICO MADRID ────────────────────────────
+  {
+    club1: "AC Milan",
+    club2: "Atletico Madrid",
+    answers: [
+      "Fernando Torres",
+      "Diego Forlan",
+      "Filipe Luis"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ LIVERPOOL ─────────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Liverpool",
+    answers: [
+      "Robbie Keane",
+      "Jermain Defoe",
+      "David Bentley"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ MANCHESTER CITY ───────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Manchester City",
+    answers: [
+      "Emmanuel Adebayor",
+      "David Silva",
+      "Pablo Zabaleta"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ JUVENTUS ──────────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Juventus",
+    answers: [
+      "Dimitar Berbatov",
+      "Luka Modric",
+      "Steffen Freund"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ BARCELONA ─────────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Barcelona",
+    answers: [
+      "Osvaldo Ardiles",
+      "Rafael van der Vaart",
+      "Jose Dominguez"
+    ]
+  },
+
+  // ── TOTTENHAM ↔ INTER MILAN ───────────────────────────────
+  {
+    club1: "Tottenham",
+    club2: "Inter Milan",
+    answers: [
+      "Gareth Bale",
+      "Nicola Berti",
+      "Jurgen Klinsmann"
+    ]
+  }
+
+];
 // ============================================================
 // FORMATIONS
 // ============================================================
