@@ -3,556 +3,725 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PitacoFC — Football Mini-Games Platform</title>
+  <title>PitacoFC — Football Intelligence Platform</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icon Libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ==================== NAVIGATION ==================== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-brand">
-      <i class="fa-solid fa-futbol nav-logo-icon"></i>
-      <span class="nav-logo-text">PitacoFC</span>
+  <!-- ===================== SIDEBAR NAV (DESKTOP) ===================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="var(--green)" stroke-width="2"/>
+          <path d="M14 4 L17 10 L23 10 L18.5 14.5 L20.5 21 L14 17 L7.5 21 L9.5 14.5 L5 10 L11 10 Z" fill="var(--green)" opacity="0.2"/>
+          <circle cx="14" cy="14" r="4" fill="var(--green)"/>
+          <path d="M14 8 L14 11 M14 17 L14 20 M8 14 L11 14 M17 14 L20 14" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">PitacoFC</span>
+        <span class="brand-tagline">Football IQ</span>
+      </div>
     </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#" class="nav-item active" data-page="home"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-      <li><a href="#" class="nav-item" data-page="games"><i class="fa-solid fa-gamepad"></i><span>Mini-Games</span></a></li>
-      <li><a href="#" class="nav-item" data-page="builder"><i class="fa-solid fa-users"></i><span>Team Builder</span></a></li>
-      <li><a href="#" class="nav-item" data-page="profile"><i class="fa-solid fa-user-circle"></i><span>Profile</span></a></li>
-    </ul>
-    <div class="nav-coins">
-      <i class="fa-solid fa-coins"></i>
-      <span id="navCoins">0</span>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-link active" data-page="home">
+        <i class="ph ph-house-simple"></i>
+        <span>Home</span>
+      </a>
+      <a href="#" class="nav-link" data-page="games">
+        <i class="ph ph-game-controller"></i>
+        <span>Mini-Games</span>
+      </a>
+      <a href="#" class="nav-link" data-page="builder">
+        <i class="ph ph-shirt"></i>
+        <span>Team Builder</span>
+      </a>
+      <a href="#" class="nav-link" data-page="ranking">
+        <i class="ph ph-trophy"></i>
+        <span>Ranking</span>
+      </a>
+      <a href="#" class="nav-link" data-page="profile">
+        <i class="ph ph-user-circle"></i>
+        <span>Profile</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-coins">
+        <i class="ph ph-coins"></i>
+        <div>
+          <span class="coins-label">Balance</span>
+          <span class="coins-value" id="sidebarCoins">0</span>
+        </div>
+      </div>
     </div>
-    <button class="nav-hamburger" id="navHamburger">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-  </nav>
+  </aside>
 
-  <!-- ==================== PAGES ==================== -->
-  <main class="main-content">
+  <!-- ===================== MOBILE TOP BAR ===================== -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-brand">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="13" stroke="var(--green)" stroke-width="2"/>
+        <circle cx="14" cy="14" r="4" fill="var(--green)"/>
+      </svg>
+      <span>PitacoFC</span>
+    </div>
+    <div class="topbar-coins">
+      <i class="ph ph-coins"></i>
+      <span id="topbarCoins">0</span>
+    </div>
+  </header>
 
-    <!-- HOME PAGE -->
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main" id="mainContent">
+
+    <!-- ===== HOME PAGE ===== -->
     <section class="page active" id="page-home">
-      <div class="hero-section">
-        <div class="hero-pitch-lines"></div>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-bg">
+          <div class="hero-pitch-svg">
+            <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <rect width="600" height="360" fill="none"/>
+              <rect x="20" y="20" width="560" height="320" rx="2" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none"/>
+              <line x1="300" y1="20" x2="300" y2="340" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+              <circle cx="300" cy="180" r="50" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
+              <circle cx="300" cy="180" r="3" fill="rgba(255,255,255,0.12)"/>
+              <rect x="20" y="120" width="80" height="120" rx="1" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
+              <rect x="500" y="120" width="80" height="120" rx="1" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
+              <rect x="20" y="150" width="35" height="60" rx="1" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" fill="none"/>
+              <rect x="545" y="150" width="35" height="60" rx="1" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+        </div>
         <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fa-solid fa-trophy"></i>
-            <span>Football Challenge Platform</span>
+          <div class="hero-kicker">
+            <span class="kicker-dot"></span>
+            Football Intelligence Platform
           </div>
-          <h1 class="hero-title">Build Your <br><span class="accent">Dream Squad</span></h1>
-          <p class="hero-sub">Play mini-games, earn coins, and assemble the ultimate team. Test your football knowledge against the best.</p>
-          <div class="hero-actions">
-            <button class="btn-primary" onclick="navigateTo('games')">
-              <i class="fa-solid fa-play"></i> Play Now
+          <h1 class="hero-headline">Build the<br><em>Perfect Squad.</em></h1>
+          <p class="hero-body">Test your knowledge with mini-games, earn coins, and assemble your dream team. Strategy meets passion.</p>
+          <div class="hero-cta">
+            <button class="cta-primary" onclick="navigateTo('games')">
+              <i class="ph ph-play-circle"></i>
+              Play Now
             </button>
-            <button class="btn-secondary" onclick="navigateTo('builder')">
-              <i class="fa-solid fa-users"></i> Team Builder
+            <button class="cta-ghost" onclick="navigateTo('builder')">
+              <i class="ph ph-shirt"></i>
+              Build Team
             </button>
           </div>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <i class="fa-solid fa-futbol"></i>
-            <span class="hero-stat-num">100+</span>
-            <span class="hero-stat-label">Players</span>
+        <div class="hero-stats-strip">
+          <div class="hstat">
+            <span class="hstat-num">100+</span>
+            <span class="hstat-label">Players</span>
           </div>
-          <div class="hero-stat">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span class="hero-stat-num">50+</span>
-            <span class="hero-stat-label">Clubs</span>
+          <div class="hstat-divider"></div>
+          <div class="hstat">
+            <span class="hstat-num">50+</span>
+            <span class="hstat-label">Clubs</span>
           </div>
-          <div class="hero-stat">
-            <i class="fa-solid fa-gamepad"></i>
-            <span class="hero-stat-num">5</span>
-            <span class="hero-stat-label">Games</span>
+          <div class="hstat-divider"></div>
+          <div class="hstat">
+            <span class="hstat-num">5</span>
+            <span class="hstat-label">Games</span>
+          </div>
+          <div class="hstat-divider"></div>
+          <div class="hstat">
+            <span class="hstat-num" id="homeStreak">0</span>
+            <span class="hstat-label">Best Streak</span>
           </div>
         </div>
       </div>
 
-      <!-- Games Grid -->
-      <div class="section-container">
-        <div class="section-header">
+      <!-- Dashboard Row -->
+      <div class="dashboard-row">
+        <div class="dash-card dash-card--coins">
+          <div class="dash-card-icon">
+            <i class="ph ph-coins"></i>
+          </div>
+          <div class="dash-card-body">
+            <span class="dash-label">Coin Balance</span>
+            <span class="dash-value" id="homeCoins">0</span>
+          </div>
+        </div>
+        <div class="dash-card dash-card--value">
+          <div class="dash-card-icon">
+            <i class="ph ph-trend-up"></i>
+          </div>
+          <div class="dash-card-body">
+            <span class="dash-label">Team Value</span>
+            <span class="dash-value" id="homeTeamValue">0</span>
+          </div>
+        </div>
+        <div class="dash-card dash-card--games">
+          <div class="dash-card-icon">
+            <i class="ph ph-game-controller"></i>
+          </div>
+          <div class="dash-card-body">
+            <span class="dash-label">Games Played</span>
+            <span class="dash-value" id="homeGamesPlayed">0</span>
+          </div>
+        </div>
+        <div class="dash-card dash-card--accuracy">
+          <div class="dash-card-icon">
+            <i class="ph ph-target"></i>
+          </div>
+          <div class="dash-card-body">
+            <span class="dash-label">Accuracy</span>
+            <span class="dash-value" id="homeAccuracy">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Mini-Games -->
+      <div class="section-head">
+        <div>
           <h2 class="section-title">Mini-Games</h2>
-          <span class="section-sub">Earn coins to build your team</span>
+          <p class="section-sub">Earn coins. Expand your squad.</p>
         </div>
-        <div class="games-grid">
-          <div class="game-card" onclick="launchGame('guessTeam')">
-            <div class="game-card-icon" style="--card-color: #00a651;">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div class="game-card-info">
-              <h3>Guess the Team</h3>
-              <p>Identify the club from a blurred badge</p>
-              <div class="game-card-reward">
-                <i class="fa-solid fa-coins"></i>
-                <span>+15 coins</span>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right game-arrow"></i>
-          </div>
+        <button class="section-link" onclick="navigateTo('games')">
+          View all <i class="ph ph-arrow-right"></i>
+        </button>
+      </div>
 
-          <div class="game-card" onclick="launchGame('missingLink')">
-            <div class="game-card-icon" style="--card-color: #f39c12;">
-              <i class="fa-solid fa-link"></i>
-            </div>
-            <div class="game-card-info">
-              <h3>Missing Link</h3>
-              <p>Find the player who connects two clubs</p>
-              <div class="game-card-reward">
-                <i class="fa-solid fa-coins"></i>
-                <span>+20 coins</span>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right game-arrow"></i>
+      <div class="games-grid">
+        <div class="game-tile" onclick="navigateTo('games'); setTimeout(()=>launchGame('guessTeam'),200)">
+          <div class="game-tile-accent" style="--accent:#00c06b"></div>
+          <div class="game-tile-icon">
+            <i class="ph ph-shield-chevron"></i>
           </div>
-
-          <div class="game-card" onclick="launchGame('careerQuiz')">
-            <div class="game-card-icon" style="--card-color: #9b59b6;">
-              <i class="fa-solid fa-timeline"></i>
-            </div>
-            <div class="game-card-info">
-              <h3>Player Career</h3>
-              <p>Guess the player from their club history</p>
-              <div class="game-card-reward">
-                <i class="fa-solid fa-coins"></i>
-                <span>+25 coins</span>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right game-arrow"></i>
+          <div class="game-tile-body">
+            <h3>Guess the Team</h3>
+            <p>Identify the club from a blurred badge</p>
           </div>
-
-          <div class="game-card" onclick="launchGame('trueOrFalse')">
-            <div class="game-card-icon" style="--card-color: #e74c3c;">
-              <i class="fa-solid fa-circle-question"></i>
-            </div>
-            <div class="game-card-info">
-              <h3>True or False</h3>
-              <p>Did this player really play for that club?</p>
-              <div class="game-card-reward">
-                <i class="fa-solid fa-coins"></i>
-                <span>+10 coins</span>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right game-arrow"></i>
+          <div class="game-tile-reward">
+            <i class="ph ph-coins"></i> +15
           </div>
+        </div>
 
-          <div class="game-card featured-game" onclick="navigateTo('builder')">
-            <div class="game-card-icon" style="--card-color: #00a651;">
-              <i class="fa-solid fa-shirt"></i>
-            </div>
-            <div class="game-card-info">
-              <h3>Budget Squad</h3>
-              <p>Build the best team within your budget</p>
-              <div class="game-card-reward">
-                <i class="fa-solid fa-star"></i>
-                <span>Main Challenge</span>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right game-arrow"></i>
+        <div class="game-tile" onclick="navigateTo('games'); setTimeout(()=>launchGame('missingLink'),200)">
+          <div class="game-tile-accent" style="--accent:#f5a623"></div>
+          <div class="game-tile-icon" style="color:#f5a623">
+            <i class="ph ph-link"></i>
+          </div>
+          <div class="game-tile-body">
+            <h3>Missing Link</h3>
+            <p>Find the player who connects two clubs</p>
+          </div>
+          <div class="game-tile-reward">
+            <i class="ph ph-coins"></i> +20
+          </div>
+        </div>
+
+        <div class="game-tile" onclick="navigateTo('games'); setTimeout(()=>launchGame('careerQuiz'),200)">
+          <div class="game-tile-accent" style="--accent:#7c6ff7"></div>
+          <div class="game-tile-icon" style="color:#7c6ff7">
+            <i class="ph ph-path"></i>
+          </div>
+          <div class="game-tile-body">
+            <h3>Player Career</h3>
+            <p>Guess the player from their club history</p>
+          </div>
+          <div class="game-tile-reward">
+            <i class="ph ph-coins"></i> +25
+          </div>
+        </div>
+
+        <div class="game-tile" onclick="navigateTo('games'); setTimeout(()=>launchGame('trueOrFalse'),200)">
+          <div class="game-tile-accent" style="--accent:#e05252"></div>
+          <div class="game-tile-icon" style="color:#e05252">
+            <i class="ph ph-question"></i>
+          </div>
+          <div class="game-tile-body">
+            <h3>True or False</h3>
+            <p>Did this player really play for that club?</p>
+          </div>
+          <div class="game-tile-reward">
+            <i class="ph ph-coins"></i> +10
+          </div>
+        </div>
+
+        <div class="game-tile game-tile--featured" onclick="navigateTo('builder')">
+          <div class="game-tile-accent" style="--accent:#00c06b"></div>
+          <div class="game-tile-icon">
+            <i class="ph ph-soccer-ball"></i>
+          </div>
+          <div class="game-tile-body">
+            <h3>Budget Squad</h3>
+            <p>Build the best team within your budget</p>
+          </div>
+          <div class="game-tile-reward featured">
+            <i class="ph ph-star"></i> Main
           </div>
         </div>
       </div>
 
-      <!-- Recent Activity -->
-      <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title">Your Progress</h2>
-        </div>
-        <div class="progress-grid">
-          <div class="progress-card">
-            <i class="fa-solid fa-coins"></i>
-            <div class="progress-info">
-              <span class="progress-label">Coins Balance</span>
-              <span class="progress-val" id="homeCoins">0</span>
-            </div>
-          </div>
-          <div class="progress-card">
-            <i class="fa-solid fa-users"></i>
-            <div class="progress-info">
-              <span class="progress-label">Team Value</span>
-              <span class="progress-val" id="homeTeamValue">0</span>
-            </div>
-          </div>
-          <div class="progress-card">
-            <i class="fa-solid fa-gamepad"></i>
-            <div class="progress-info">
-              <span class="progress-label">Games Played</span>
-              <span class="progress-val" id="homeGamesPlayed">0</span>
-            </div>
-          </div>
-          <div class="progress-card">
-            <i class="fa-solid fa-circle-check"></i>
-            <div class="progress-info">
-              <span class="progress-label">Correct Answers</span>
-              <span class="progress-val" id="homeCorrect">0</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- MINI GAMES PAGE -->
+    <!-- ===== MINI-GAMES PAGE ===== -->
     <section class="page" id="page-games">
-      <div class="page-header">
-        <h1><i class="fa-solid fa-gamepad"></i> Mini-Games</h1>
-        <div class="coin-badge">
-          <i class="fa-solid fa-coins"></i>
-          <span id="gamesCoins">0</span> coins
+      <div class="page-top">
+        <div>
+          <h1 class="page-title">Mini-Games</h1>
+          <p class="page-sub">Choose a challenge and earn coins</p>
         </div>
+        <div class="coin-pill" id="gamesCoinPill">
+          <i class="ph ph-coins"></i>
+          <span id="gamesCoins">0</span>
+        </div>
+      </div>
+
+      <!-- Game tabs -->
+      <div class="game-tabs" id="gameTabs">
+        <button class="gtab active" data-game="guessTeam" onclick="switchGameTab('guessTeam', this)">Guess Team</button>
+        <button class="gtab" data-game="missingLink" onclick="switchGameTab('missingLink', this)">Missing Link</button>
+        <button class="gtab" data-game="careerQuiz" onclick="switchGameTab('careerQuiz', this)">Career Quiz</button>
+        <button class="gtab" data-game="trueOrFalse" onclick="switchGameTab('trueOrFalse', this)">True or False</button>
       </div>
 
       <!-- GAME: Guess the Team -->
-      <div class="game-panel" id="game-guessTeam">
-        <div class="game-panel-header">
-          <div class="game-panel-title">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h2>Guess the Team</h2>
-          </div>
-          <span class="reward-chip"><i class="fa-solid fa-coins"></i> +15 per correct</span>
-        </div>
-        <div class="game-body">
-          <p class="game-instructions"><i class="fa-solid fa-circle-info"></i> The badge will become clearer over time. Type the club name to guess.</p>
-          <div class="guess-team-container">
-            <div class="blurred-badge-container">
-              <div class="blurred-badge" id="blurredBadge">
-                <div class="badge-placeholder" id="badgePlaceholder">
-                  <i class="fa-solid fa-shield-halved"></i>
-                  <span id="badgeClubInitial">?</span>
-                </div>
-              </div>
-              <div class="blur-timer-bar">
-                <div class="blur-timer-fill" id="blurTimerFill"></div>
-              </div>
-              <span class="blur-hint" id="blurHint">Badge is blurred — guess fast for more points!</span>
+      <div class="game-panel active" id="game-guessTeam">
+        <div class="game-panel-inner">
+          <div class="game-meta-bar">
+            <div class="gmeta">
+              <i class="ph ph-shield-chevron"></i>
+              <span>Guess the Team</span>
             </div>
-            <div class="guess-input-area">
-              <div class="league-hint" id="leagueHint">
-                <i class="fa-solid fa-globe"></i>
-                <span id="leagueHintText">Hint: —</span>
-              </div>
-              <input type="text" id="guessTeamInput" class="game-input" placeholder="Type club name..." autocomplete="off" />
-              <button class="btn-primary" onclick="checkGuessTeam()">
-                <i class="fa-solid fa-paper-plane"></i> Submit
-              </button>
-              <button class="btn-outline" onclick="skipGuessTeam()">
-                <i class="fa-solid fa-forward"></i> Skip
-              </button>
-              <div class="game-feedback" id="guessTeamFeedback"></div>
+            <div class="gmeta-stats">
+              <span class="gscore"><i class="ph ph-check-circle"></i> <b id="gtScore">0</b></span>
+              <span class="gwrong"><i class="ph ph-x-circle"></i> <b id="gtWrong">0</b></span>
+              <span class="gstreak"><i class="ph ph-fire"></i> <b id="gtStreak">0</b></span>
             </div>
           </div>
-          <div class="game-score-row">
-            <span><i class="fa-solid fa-check-circle"></i> Correct: <b id="guessTeamScore">0</b></span>
-            <span><i class="fa-solid fa-xmark-circle"></i> Wrong: <b id="guessTeamWrong">0</b></span>
-            <span><i class="fa-solid fa-fire"></i> Streak: <b id="guessTeamStreak">0</b></span>
+
+          <div class="game-arena">
+            <div class="badge-display" id="guessTeamBadge">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="blur-progress-bar">
+              <div class="blur-fill" id="blurFill"></div>
+            </div>
+            <div class="timer-ring">
+              <svg viewBox="0 0 60 60">
+                <circle cx="30" cy="30" r="26" stroke="var(--surface-2)" stroke-width="4" fill="none"/>
+                <circle cx="30" cy="30" r="26" stroke="var(--green)" stroke-width="4" fill="none" stroke-linecap="round"
+                  stroke-dasharray="163.4" id="timerCircle" stroke-dashoffset="0" transform="rotate(-90 30 30)"/>
+              </svg>
+              <span id="guessTeamTimer">30</span>
+            </div>
           </div>
+
+          <div class="game-input-row">
+            <input type="text" class="game-input" id="guessTeamInput" placeholder="Club name..." autocomplete="off" />
+            <button class="btn-submit" onclick="checkGuessTeam()">
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="game-feedback" id="guessTeamFeedback"></div>
+
+          <button class="btn-skip" onclick="nextGuessTeam()">
+            <i class="ph ph-skip-forward"></i> Skip
+          </button>
         </div>
       </div>
 
       <!-- GAME: Missing Link -->
       <div class="game-panel" id="game-missingLink">
-        <div class="game-panel-header">
-          <div class="game-panel-title">
-            <i class="fa-solid fa-link"></i>
-            <h2>Missing Link</h2>
-          </div>
-          <span class="reward-chip"><i class="fa-solid fa-coins"></i> +20 per correct</span>
-        </div>
-        <div class="game-body">
-          <p class="game-instructions"><i class="fa-solid fa-circle-info"></i> Name a player who played for BOTH clubs shown.</p>
-          <div class="missing-link-container">
-            <div class="clubs-connector">
-              <div class="connector-club" id="missingClub1">
-                <div class="club-badge-display">
-                  <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <span id="missingClub1Name">Club A</span>
-              </div>
-              <div class="connector-arrow">
-                <i class="fa-solid fa-arrows-left-right"></i>
-                <span>WHO?</span>
-              </div>
-              <div class="connector-club" id="missingClub2">
-                <div class="club-badge-display">
-                  <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <span id="missingClub2Name">Club B</span>
-              </div>
+        <div class="game-panel-inner">
+          <div class="game-meta-bar">
+            <div class="gmeta">
+              <i class="ph ph-link"></i>
+              <span>Missing Link</span>
             </div>
-            <div class="guess-input-area">
-              <input type="text" id="missingLinkInput" class="game-input" placeholder="Player name..." autocomplete="off" />
-              <button class="btn-primary" onclick="checkMissingLink()">
-                <i class="fa-solid fa-paper-plane"></i> Submit
-              </button>
-              <button class="btn-outline" onclick="nextMissingLink()">
-                <i class="fa-solid fa-forward"></i> Skip
-              </button>
-              <div class="game-feedback" id="missingLinkFeedback"></div>
+            <div class="gmeta-stats">
+              <span class="gscore"><i class="ph ph-check-circle"></i> <b id="mlScore">0</b></span>
+              <span class="gwrong"><i class="ph ph-x-circle"></i> <b id="mlWrong">0</b></span>
             </div>
           </div>
-          <div class="game-score-row">
-            <span><i class="fa-solid fa-check-circle"></i> Correct: <b id="missingLinkScore">0</b></span>
-            <span><i class="fa-solid fa-xmark-circle"></i> Wrong: <b id="missingLinkWrong">0</b></span>
+
+          <div class="missing-link-display" id="missingLinkDisplay">
+            <div class="ml-club-card" id="mlClubA">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>—</span>
+            </div>
+            <div class="ml-connector">
+              <div class="ml-line"></div>
+              <div class="ml-question">
+                <i class="ph ph-user-circle-dashed"></i>
+              </div>
+              <div class="ml-line"></div>
+            </div>
+            <div class="ml-club-card" id="mlClubB">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>—</span>
+            </div>
           </div>
+
+          <div class="game-input-row">
+            <input type="text" class="game-input" id="missingLinkInput" placeholder="Player name..." autocomplete="off" />
+            <button class="btn-submit" onclick="checkMissingLink()">
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="game-feedback" id="missingLinkFeedback"></div>
+
+          <button class="btn-skip" onclick="nextMissingLink()">
+            <i class="ph ph-skip-forward"></i> Skip
+          </button>
         </div>
       </div>
 
       <!-- GAME: Career Quiz -->
       <div class="game-panel" id="game-careerQuiz">
-        <div class="game-panel-header">
-          <div class="game-panel-title">
-            <i class="fa-solid fa-timeline"></i>
-            <h2>Player Career</h2>
+        <div class="game-panel-inner">
+          <div class="game-meta-bar">
+            <div class="gmeta">
+              <i class="ph ph-path"></i>
+              <span>Player Career</span>
+            </div>
+            <div class="gmeta-stats">
+              <span class="gscore"><i class="ph ph-check-circle"></i> <b id="cqScore">0</b></span>
+              <span class="gwrong"><i class="ph ph-x-circle"></i> <b id="cqWrong">0</b></span>
+            </div>
           </div>
-          <span class="reward-chip"><i class="fa-solid fa-coins"></i> +25 per correct</span>
-        </div>
-        <div class="game-body">
-          <p class="game-instructions"><i class="fa-solid fa-circle-info"></i> Look at this player's club career. Who is it?</p>
-          <div class="career-timeline" id="careerTimeline"></div>
-          <div class="guess-input-area" style="margin-top:1.5rem;">
-            <div class="career-hint-text" id="careerHintText"></div>
-            <input type="text" id="careerQuizInput" class="game-input" placeholder="Player name..." autocomplete="off" />
-            <button class="btn-primary" onclick="checkCareerQuiz()">
-              <i class="fa-solid fa-paper-plane"></i> Submit
+
+          <p class="career-instruction">Who played for all these clubs?</p>
+          <div class="career-flow" id="careerFlow"></div>
+
+          <div class="game-input-row">
+            <input type="text" class="game-input" id="careerQuizInput" placeholder="Player name..." autocomplete="off" />
+            <button class="btn-submit" onclick="checkCareerQuiz()">
+              <i class="ph ph-arrow-right"></i>
             </button>
-            <button class="btn-outline" onclick="nextCareerQuiz()">
-              <i class="fa-solid fa-forward"></i> Skip
-            </button>
-            <div class="game-feedback" id="careerQuizFeedback"></div>
           </div>
-          <div class="game-score-row">
-            <span><i class="fa-solid fa-check-circle"></i> Correct: <b id="careerQuizScore">0</b></span>
-            <span><i class="fa-solid fa-xmark-circle"></i> Wrong: <b id="careerQuizWrong">0</b></span>
-          </div>
+
+          <div class="game-feedback" id="careerQuizFeedback"></div>
+
+          <button class="btn-skip" onclick="nextCareerQuiz()">
+            <i class="ph ph-skip-forward"></i> Skip
+          </button>
         </div>
       </div>
 
       <!-- GAME: True or False -->
       <div class="game-panel" id="game-trueOrFalse">
-        <div class="game-panel-header">
-          <div class="game-panel-title">
-            <i class="fa-solid fa-circle-question"></i>
-            <h2>True or False</h2>
-          </div>
-          <span class="reward-chip"><i class="fa-solid fa-coins"></i> +10 per correct</span>
-        </div>
-        <div class="game-body">
-          <p class="game-instructions"><i class="fa-solid fa-circle-info"></i> Did this player really play for that club?</p>
-          <div class="tof-container">
-            <div class="tof-card">
-              <div class="tof-player-name" id="tofPlayer">Loading...</div>
-              <div class="tof-separator">
-                <i class="fa-solid fa-arrow-down"></i>
-                <span>played for</span>
-              </div>
-              <div class="tof-club-name" id="tofClub">Loading...</div>
+        <div class="game-panel-inner">
+          <div class="game-meta-bar">
+            <div class="gmeta">
+              <i class="ph ph-question"></i>
+              <span>True or False</span>
             </div>
-            <div class="tof-buttons">
-              <button class="btn-true" onclick="checkTrueOrFalse(true)">
-                <i class="fa-solid fa-check"></i> True
-              </button>
-              <button class="btn-false" onclick="checkTrueOrFalse(false)">
-                <i class="fa-solid fa-xmark"></i> False
-              </button>
+            <div class="gmeta-stats">
+              <span class="gscore"><i class="ph ph-check-circle"></i> <b id="tofScore">0</b></span>
+              <span class="gwrong"><i class="ph ph-x-circle"></i> <b id="tofWrong">0</b></span>
+              <span class="gstreak"><i class="ph ph-fire"></i> <b id="tofStreak">0</b></span>
             </div>
-            <div class="game-feedback" id="tofFeedback"></div>
           </div>
-          <div class="game-score-row">
-            <span><i class="fa-solid fa-check-circle"></i> Correct: <b id="tofScore">0</b></span>
-            <span><i class="fa-solid fa-xmark-circle"></i> Wrong: <b id="tofWrong">0</b></span>
-            <span><i class="fa-solid fa-fire"></i> Streak: <b id="tofStreak">0</b></span>
+
+          <div class="tof-statement" id="tofStatement">
+            <p id="tofText">Loading...</p>
           </div>
+
+          <div class="tof-buttons">
+            <button class="tof-btn tof-true" onclick="checkTrueOrFalse(true)">
+              <i class="ph ph-check-fat"></i>
+              True
+            </button>
+            <button class="tof-btn tof-false" onclick="checkTrueOrFalse(false)">
+              <i class="ph ph-x"></i>
+              False
+            </button>
+          </div>
+
+          <div class="game-feedback" id="tofFeedback"></div>
         </div>
       </div>
+
     </section>
 
-    <!-- TEAM BUILDER PAGE -->
+    <!-- ===== TEAM BUILDER PAGE ===== -->
     <section class="page" id="page-builder">
-      <div class="page-header">
-        <h1><i class="fa-solid fa-shirt"></i> Team Builder</h1>
-        <div class="coin-badge">
-          <i class="fa-solid fa-coins"></i>
-          <span id="builderCoins">0</span> coins
+      <div class="page-top">
+        <div>
+          <h1 class="page-title">Team Builder</h1>
+          <p class="page-sub">Assemble your squad within budget</p>
+        </div>
+        <div class="coin-pill">
+          <i class="ph ph-coins"></i>
+          <span id="builderCoins">0</span>
         </div>
       </div>
 
-      <div class="builder-layout">
-        <!-- Controls -->
+      <div class="builder-shell">
+
+        <!-- Controls Panel -->
         <div class="builder-controls">
-          <div class="formation-selector">
-            <label><i class="fa-solid fa-diagram-project"></i> Formation</label>
-            <div class="formation-buttons">
-              <button class="formation-btn active" data-formation="4-3-3" onclick="changeFormation('4-3-3')">4-3-3</button>
-              <button class="formation-btn" data-formation="4-4-2" onclick="changeFormation('4-4-2')">4-4-2</button>
-              <button class="formation-btn" data-formation="4-2-3-1" onclick="changeFormation('4-2-3-1')">4-2-3-1</button>
+          <div class="ctrl-section">
+            <label class="ctrl-label">Formation</label>
+            <div class="formation-btns">
+              <button class="fmtn-btn active" data-formation="4-3-3" onclick="changeFormation('4-3-3', this)">4-3-3</button>
+              <button class="fmtn-btn" data-formation="4-4-2" onclick="changeFormation('4-4-2', this)">4-4-2</button>
+              <button class="fmtn-btn" data-formation="4-2-3-1" onclick="changeFormation('4-2-3-1', this)">4-2-3-1</button>
             </div>
           </div>
-          <div class="builder-stats">
-            <div class="builder-stat">
-              <i class="fa-solid fa-coins"></i>
-              <div>
-                <span class="stat-label">Budget</span>
-                <span class="stat-val" id="builderBudget">0</span>
-              </div>
+
+          <div class="ctrl-stats">
+            <div class="cstat">
+              <span class="cstat-label">Budget</span>
+              <span class="cstat-val" id="builderBudget">0</span>
             </div>
-            <div class="builder-stat">
-              <i class="fa-solid fa-chart-line"></i>
-              <div>
-                <span class="stat-label">Team Value</span>
-                <span class="stat-val" id="builderTeamVal">0</span>
-              </div>
+            <div class="cstat-divider"></div>
+            <div class="cstat">
+              <span class="cstat-label">Team Value</span>
+              <span class="cstat-val" id="builderTeamVal">0</span>
             </div>
-            <div class="builder-stat">
-              <i class="fa-solid fa-users"></i>
-              <div>
-                <span class="stat-label">Players</span>
-                <span class="stat-val" id="builderPlayerCount">0/11</span>
-              </div>
+            <div class="cstat-divider"></div>
+            <div class="cstat">
+              <span class="cstat-label">Players</span>
+              <span class="cstat-val" id="builderPlayerCount">0/11</span>
             </div>
           </div>
-          <button class="btn-danger" onclick="clearTeam()">
-            <i class="fa-solid fa-trash"></i> Clear Team
+
+          <button class="btn-clear" onclick="clearTeam()">
+            <i class="ph ph-trash"></i>
+            Clear Squad
           </button>
         </div>
 
         <!-- Pitch -->
-        <div class="pitch-wrapper">
+        <div class="pitch-container">
           <div class="pitch" id="pitch">
-            <div class="pitch-markings">
-              <div class="center-circle"></div>
-              <div class="center-line"></div>
-              <div class="penalty-box top"></div>
-              <div class="penalty-box bottom"></div>
-              <div class="goal-box top"></div>
-              <div class="goal-box bottom"></div>
+            <!-- Field markings -->
+            <div class="field-lines">
+              <div class="fl-outline"></div>
+              <div class="fl-midline"></div>
+              <div class="fl-center-circle"></div>
+              <div class="fl-center-dot"></div>
+              <div class="fl-penalty-top"></div>
+              <div class="fl-penalty-bottom"></div>
+              <div class="fl-goal-top"></div>
+              <div class="fl-goal-bottom"></div>
+              <div class="fl-arc-top"></div>
+              <div class="fl-arc-bottom"></div>
             </div>
             <div class="pitch-positions" id="pitchPositions"></div>
           </div>
         </div>
 
-        <!-- Team List -->
-        <div class="team-list-panel">
-          <h3><i class="fa-solid fa-list"></i> Squad List</h3>
+        <!-- Squad List -->
+        <div class="squad-panel">
+          <div class="squad-panel-head">
+            <h3>Squad List</h3>
+            <span class="squad-count" id="squadCountBadge">0/11</span>
+          </div>
           <div class="squad-list" id="squadList">
-            <div class="empty-squad">
-              <i class="fa-solid fa-users-slash"></i>
-              <span>No players selected yet</span>
+            <div class="squad-empty">
+              <i class="ph ph-users-three"></i>
+              <span>No players selected</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== RANKING PAGE ===== -->
+    <section class="page" id="page-ranking">
+      <div class="page-top">
+        <div>
+          <h1 class="page-title">Ranking</h1>
+          <p class="page-sub">Top managers on the platform</p>
+        </div>
+        <div class="coin-pill">
+          <i class="ph ph-trophy"></i>
+          <span>Leaderboard</span>
+        </div>
+      </div>
+
+      <div class="ranking-layout">
+        <div class="ranking-table-wrap">
+          <div class="ranking-header-row">
+            <span>#</span>
+            <span>Manager</span>
+            <span>Coins</span>
+            <span>Team Value</span>
+            <span>Accuracy</span>
+          </div>
+          <div id="rankingList"></div>
+        </div>
+
+        <div class="ranking-your-rank">
+          <h3>Your Rank</h3>
+          <div class="your-rank-card" id="yourRankCard">
+            <div class="yr-position" id="yourRankPos">—</div>
+            <div class="yr-info">
+              <span class="yr-name" id="yourRankName">Guest</span>
+              <span class="yr-detail" id="yourRankDetail">No games yet</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROFILE PAGE -->
+    <!-- ===== PROFILE PAGE ===== -->
     <section class="page" id="page-profile">
-      <div class="page-header">
-        <h1><i class="fa-solid fa-user-circle"></i> Profile</h1>
+      <div class="page-top">
+        <div>
+          <h1 class="page-title">Profile</h1>
+          <p class="page-sub">Your stats and achievements</p>
+        </div>
       </div>
 
-      <div class="profile-layout">
-        <div class="profile-card-main">
-          <div class="profile-avatar">
-            <i class="fa-solid fa-user-tie"></i>
+      <div class="profile-shell">
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar">
+              <i class="ph ph-user-tie"></i>
+            </div>
+            <div class="profile-avatar-ring"></div>
           </div>
-          <div class="profile-edit-section">
-            <label for="usernameInput"><i class="fa-solid fa-pen"></i> Username</label>
-            <div class="profile-input-row">
-              <input type="text" id="usernameInput" class="profile-input" placeholder="Enter username..." maxlength="20" />
-              <button class="btn-primary btn-sm" onclick="saveUsername()">
-                <i class="fa-solid fa-check"></i> Save
-              </button>
-            </div>
-          </div>
-          <div class="profile-username-display" id="profileUsernameDisplay">Guest Manager</div>
-          <div class="profile-stats-grid">
-            <div class="profile-stat-card">
-              <i class="fa-solid fa-coins"></i>
-              <span class="pstat-val" id="profileCoins">0</span>
-              <span class="pstat-label">Coins</span>
-            </div>
-            <div class="profile-stat-card">
-              <i class="fa-solid fa-chart-bar"></i>
-              <span class="pstat-val" id="profileTeamVal">0</span>
-              <span class="pstat-label">Team Value</span>
-            </div>
-            <div class="profile-stat-card">
-              <i class="fa-solid fa-gamepad"></i>
-              <span class="pstat-val" id="profileGamesPlayed">0</span>
-              <span class="pstat-label">Games Played</span>
-            </div>
-            <div class="profile-stat-card">
-              <i class="fa-solid fa-fire"></i>
-              <span class="pstat-val" id="profileBestStreak">0</span>
-              <span class="pstat-label">Best Streak</span>
-            </div>
-            <div class="profile-stat-card">
-              <i class="fa-solid fa-circle-check"></i>
-              <span class="pstat-val" id="profileCorrect">0</span>
-              <span class="pstat-label">Correct Answers</span>
-            </div>
-            <div class="profile-stat-card">
-              <i class="fa-solid fa-percent"></i>
-              <span class="pstat-val" id="profileAccuracy">0%</span>
-              <span class="pstat-label">Accuracy</span>
+
+          <div class="profile-name-section">
+            <div class="profile-display-name" id="profileUsernameDisplay">Guest Manager</div>
+            <div class="profile-name-edit">
+              <input type="text" id="usernameInput" class="name-input" placeholder="Change username..." maxlength="20" />
+              <button class="btn-save-name" onclick="saveUsername()">Save</button>
             </div>
           </div>
+
+          <div class="profile-stats-row">
+            <div class="pstat">
+              <span class="pstat-v" id="profileCoins">0</span>
+              <span class="pstat-l">Coins</span>
+            </div>
+            <div class="pstat-sep"></div>
+            <div class="pstat">
+              <span class="pstat-v" id="profileTeamVal">0</span>
+              <span class="pstat-l">Team Value</span>
+            </div>
+            <div class="pstat-sep"></div>
+            <div class="pstat">
+              <span class="pstat-v" id="profileGamesPlayed">0</span>
+              <span class="pstat-l">Games</span>
+            </div>
+          </div>
+
+          <div class="profile-stats-row">
+            <div class="pstat">
+              <span class="pstat-v" id="profileBestStreak">0</span>
+              <span class="pstat-l">Best Streak</span>
+            </div>
+            <div class="pstat-sep"></div>
+            <div class="pstat">
+              <span class="pstat-v" id="profileCorrect">0</span>
+              <span class="pstat-l">Correct</span>
+            </div>
+            <div class="pstat-sep"></div>
+            <div class="pstat">
+              <span class="pstat-v" id="profileAccuracy">0%</span>
+              <span class="pstat-l">Accuracy</span>
+            </div>
+          </div>
+
           <div class="profile-actions">
-            <button class="btn-outline" onclick="addTestCoins()">
-              <i class="fa-solid fa-plus"></i> Add 100 Test Coins
+            <button class="btn-testcoins" onclick="addTestCoins()">
+              <i class="ph ph-plus-circle"></i> Add 100 Coins
             </button>
-            <button class="btn-danger" onclick="resetProfile()">
-              <i class="fa-solid fa-rotate-left"></i> Reset Data
+            <button class="btn-reset" onclick="resetProfile()">
+              <i class="ph ph-arrow-counter-clockwise"></i> Reset
             </button>
           </div>
         </div>
 
         <!-- Achievements -->
         <div class="achievements-panel">
-          <h3><i class="fa-solid fa-medal"></i> Achievements</h3>
-          <div class="achievements-list" id="achievementsList"></div>
+          <h3 class="panel-title">
+            <i class="ph ph-medal"></i>
+            Achievements
+          </h3>
+          <div class="achievements-grid" id="achievementsList"></div>
         </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- ==================== PLAYER SELECT MODAL ==================== -->
+  <!-- ===================== MOBILE BOTTOM NAV ===================== -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="#" class="bnav-item active" data-page="home">
+      <i class="ph ph-house-simple"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="bnav-item" data-page="games">
+      <i class="ph ph-game-controller"></i>
+      <span>Games</span>
+    </a>
+    <a href="#" class="bnav-item" data-page="builder">
+      <i class="ph ph-shirt"></i>
+      <span>Builder</span>
+    </a>
+    <a href="#" class="bnav-item" data-page="ranking">
+      <i class="ph ph-trophy"></i>
+      <span>Ranking</span>
+    </a>
+    <a href="#" class="bnav-item" data-page="profile">
+      <i class="ph ph-user-circle"></i>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+  <!-- ===================== PLAYER SELECT MODAL ===================== -->
   <div class="modal-overlay" id="playerModal">
     <div class="modal-card">
-      <div class="modal-header">
-        <div class="modal-title">
-          <i class="fa-solid fa-user-plus"></i>
+      <div class="modal-top">
+        <div class="modal-title-row">
           <h2>Select Player</h2>
-          <span class="modal-position-tag" id="modalPositionTag">GK</span>
+          <span class="modal-pos-tag" id="modalPositionTag">GK</span>
         </div>
         <button class="modal-close" onclick="closePlayerModal()">
-          <i class="fa-solid fa-xmark"></i>
+          <i class="ph ph-x"></i>
         </button>
       </div>
-      <div class="modal-search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="playerSearchInput" placeholder="Search player..." oninput="filterPlayers()" />
+      <div class="modal-search-row">
+        <i class="ph ph-magnifying-glass"></i>
+        <input type="text" id="playerSearchInput" placeholder="Search player or club..." oninput="filterPlayers()" />
       </div>
-      <div class="modal-filters">
-        <button class="filter-btn active" data-filter="all" onclick="filterByPosition('all', this)">All</button>
-        <button class="filter-btn" data-filter="GK" onclick="filterByPosition('GK', this)">GK</button>
-        <button class="filter-btn" data-filter="DEF" onclick="filterByPosition('DEF', this)">DEF</button>
-        <button class="filter-btn" data-filter="MID" onclick="filterByPosition('MID', this)">MID</button>
-        <button class="filter-btn" data-filter="ATT" onclick="filterByPosition('ATT', this)">ATT</button>
+      <div class="modal-filter-row">
+        <button class="mfilter active" data-filter="all" onclick="filterByPosition('all', this)">All</button>
+        <button class="mfilter" data-filter="GK" onclick="filterByPosition('GK', this)">GK</button>
+        <button class="mfilter" data-filter="DEF" onclick="filterByPosition('DEF', this)">DEF</button>
+        <button class="mfilter" data-filter="MID" onclick="filterByPosition('MID', this)">MID</button>
+        <button class="mfilter" data-filter="ATT" onclick="filterByPosition('ATT', this)">ATT</button>
       </div>
       <div class="modal-player-list" id="modalPlayerList"></div>
     </div>
   </div>
 
-  <!-- ==================== TOAST ==================== -->
+  <!-- ===================== TOAST CONTAINER ===================== -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- ==================== COIN ANIMATION ==================== -->
+  <!-- ===================== COIN BURST ===================== -->
   <div class="coin-burst" id="coinBurst"></div>
 
   <script src="data.js"></script>
