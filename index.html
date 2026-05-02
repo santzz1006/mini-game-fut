@@ -758,9 +758,6 @@
           </div>
 
           <div class="profile-actions">
-            <button class="btn-testcoins" onclick="addTestCoins()">
-              <i class="ph ph-plus-circle"></i> Add 100 Coins
-            </button>
             <button class="btn-reset" onclick="resetProfile()">
               <i class="ph ph-arrow-counter-clockwise"></i> Reset
             </button>
@@ -835,6 +832,164 @@
         <button class="mfilter" data-filter="ATT" onclick="filterByPosition('ATT', this)">ATT</button>
       </div>
       <div class="modal-player-list" id="modalPlayerList"></div>
+    </div>
+  </div>
+
+  <!-- ===================== WELCOME MODAL ===================== -->
+  <div class="modal-overlay" id="welcomeModal">
+    <div class="welcome-card">
+
+      <!-- Header -->
+      <div class="wm-header">
+        <div class="wm-brand">
+          <img src="logoPitaco.png" alt="PitacoFC" class="wm-logo" />
+          <div>
+            <span class="wm-brand-name">PitacoFC</span>
+            <span class="wm-brand-sub">Football Intelligence Platform</span>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeWelcomeModal()">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+
+      <!-- Tab Nav -->
+      <div class="wm-tabs">
+        <button class="wm-tab active" onclick="switchWmTab('howto', this)">
+          <i class="ph ph-game-controller"></i> How It Works
+        </button>
+        <button class="wm-tab" onclick="switchWmTab('facts', this)">
+          <i class="ph ph-lightning"></i> Football Facts
+        </button>
+      </div>
+
+      <!-- Tab: How It Works -->
+      <div class="wm-body" id="wm-howto">
+        <p class="wm-intro">Play mini-games to earn coins, then use those coins to build your dream squad on the pitch.</p>
+        <div class="wm-games-list">
+
+          <div class="wm-game-item">
+            <div class="wm-game-icon" style="background:#ecfff5; color:var(--green);">
+              <i class="ph ph-shield-chevron"></i>
+            </div>
+            <div class="wm-game-info">
+              <strong>Guess the Team</strong>
+              <span>A club badge appears blurred — it reveals itself over 30 seconds. Name the club before time runs out.</span>
+            </div>
+            <div class="wm-game-reward">+15</div>
+          </div>
+
+          <div class="wm-game-item">
+            <div class="wm-game-icon" style="background:#fff8ec; color:var(--gold);">
+              <i class="ph ph-link"></i>
+            </div>
+            <div class="wm-game-info">
+              <strong>Missing Link</strong>
+              <span>Two clubs appear side by side. Name the player who wore the shirt of both during their career.</span>
+            </div>
+            <div class="wm-game-reward">+20</div>
+          </div>
+
+          <div class="wm-game-item">
+            <div class="wm-game-icon" style="background:#f3f0ff; color:var(--purple);">
+              <i class="ph ph-path"></i>
+            </div>
+            <div class="wm-game-info">
+              <strong>Player Career</strong>
+              <span>A sequence of clubs is shown in order. Identify the player who went through that exact career path.</span>
+            </div>
+            <div class="wm-game-reward">+25</div>
+          </div>
+
+          <div class="wm-game-item">
+            <div class="wm-game-icon" style="background:#fff0f0; color:var(--red);">
+              <i class="ph ph-question"></i>
+            </div>
+            <div class="wm-game-info">
+              <strong>True or False</strong>
+              <span>A statement about a player and a club is shown. Did it really happen? Answer fast — streaks multiply your focus.</span>
+            </div>
+            <div class="wm-game-reward">+10</div>
+          </div>
+
+          <div class="wm-game-item wm-game-item--featured">
+            <div class="wm-game-icon" style="background:var(--green-pale); color:var(--green-dim);">
+              <i class="ph ph-soccer-ball"></i>
+            </div>
+            <div class="wm-game-info">
+              <strong>Team Builder</strong>
+              <span>Spend your hard-earned coins to sign players and fill all 11 positions on a real tactical pitch.</span>
+            </div>
+            <div class="wm-game-reward" style="color:var(--green-dim); background:var(--green-pale);">Main</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tab: Football Facts -->
+      <div class="wm-body wm-body--hidden" id="wm-facts">
+        <div class="wm-facts-grid">
+
+          <div class="wm-fact-card">
+            <div class="wm-fact-icon"><i class="ph ph-trophy"></i></div>
+            <div class="wm-fact-content">
+              <strong>Biggest World Cup Final Crowd</strong>
+              <p>The 1950 final between Brazil and Uruguay at the Maracana drew an estimated 199,854 people — still the largest attendance in football history. Brazil lost 2-1 in what Brazilians call the "Maracanazo".</p>
+            </div>
+          </div>
+
+          <div class="wm-fact-card">
+            <div class="wm-fact-icon"><i class="ph ph-lightning"></i></div>
+            <div class="wm-fact-content">
+              <strong>Fastest Goal Ever Recorded</strong>
+              <p>Nawaf Al-Abed scored just 2.4 seconds into a Saudi league match in 2009. He launched the ball from the kickoff straight into the net — before the opponent even touched it.</p>
+            </div>
+          </div>
+
+          <div class="wm-fact-card">
+            <div class="wm-fact-icon"><i class="ph ph-star"></i></div>
+            <div class="wm-fact-content">
+              <strong>Most World Cup Titles</strong>
+              <p>Brazil is the only nation to have won 5 World Cups (1958, 1962, 1970, 1994, 2002) and the only one to participate in every single edition of the tournament since 1930.</p>
+            </div>
+          </div>
+
+          <div class="wm-fact-card">
+            <div class="wm-fact-icon"><i class="ph ph-soccer-ball"></i></div>
+            <div class="wm-fact-content">
+              <strong>Biggest Ever Scoreline</strong>
+              <p>AS Adema beat SO l'Emyrne 149-0 in a 2002 Madagascar league match. The losing side deliberately scored own goals in protest of a refereeing decision in a prior game.</p>
+            </div>
+          </div>
+
+          <div class="wm-fact-card">
+            <div class="wm-fact-icon"><i class="ph ph-user-circle"></i></div>
+            <div class="wm-fact-content">
+              <strong>Youngest World Cup Scorer</strong>
+              <p>Pelé was just 17 years and 239 days old when he scored at the 1958 World Cup in Sweden — becoming the youngest goalscorer in World Cup final history, a record that still stands.</p>
+            </div>
+          </div>
+
+          <div class="wm-fact-card">
+            <div class="wm-fact-icon"><i class="ph ph-chart-bar"></i></div>
+            <div class="wm-fact-content">
+              <strong>Most Club Goals in History</strong>
+              <p>Josef Bican is credited with over 800 official goals, though records of his era are incomplete. Among modern players, Cristiano Ronaldo leads with 900+ goals across all competitions.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="wm-footer">
+        <span class="wm-footer-note">This message only appears on your first visit.</span>
+        <button class="wm-start-btn" onclick="closeWelcomeModal()">
+          <i class="ph ph-play-circle"></i>
+          Start Playing
+        </button>
+      </div>
+
     </div>
   </div>
 

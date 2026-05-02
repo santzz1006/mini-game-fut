@@ -274,36 +274,24 @@ img { display: block; max-width: 100%; }
    HOME — HERO
    ============================================================ */
 .hero {
-  background: var(--text);
-  border-radius: var(--radius-lg);
-  padding: 3rem 3rem 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
-  color: var(--white);
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.hero-pitch-svg {
-  position: absolute;
-  right: -40px;
-  top: -20px;
-  width: 65%;
-  height: 130%;
-  opacity: 0.5;
-}
+/* SVG background oculto no tema claro */
+.hero-bg { display: none; }
+.hero-pitch-svg { display: none; }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 520px;
-  padding-bottom: 2.5rem;
+  max-width: 600px;
+  padding-bottom: 2rem;
 }
 
 .hero-kicker {
@@ -326,12 +314,12 @@ img { display: block; max-width: 100%; }
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: 0.5px;
-  margin-bottom: 1.25rem;
-  color: var(--white);
+  margin-bottom: 1rem;
+  color: var(--text);
 }
 
 .hero-headline em {
@@ -342,9 +330,9 @@ img { display: block; max-width: 100%; }
 .hero-body {
   font-size: 1rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.6);
-  max-width: 440px;
-  margin-bottom: 2rem;
+  color: var(--text-2);
+  max-width: 460px;
+  margin-bottom: 1.75rem;
 }
 
 .hero-cta {
@@ -372,28 +360,28 @@ img { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.8);
+  background: var(--white);
+  color: var(--text-2);
   padding: 0.7rem 1.5rem;
   border-radius: var(--radius);
   font-size: 0.9rem;
   font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.12);
-  transition: background 0.15s;
+  border: 1px solid var(--border);
+  transition: background 0.15s, border-color 0.15s;
 }
-.cta-ghost:hover { background: rgba(255,255,255,0.14); }
+.cta-ghost:hover { background: var(--surface-2); border-color: var(--border-strong); }
 .cta-ghost i.ph { font-size: 1rem; }
 
 .hero-stats-strip {
-  position: relative;
-  z-index: 1;
   display: flex;
   align-items: center;
   gap: 0;
-  background: rgba(255,255,255,0.05);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  margin: 0 -3rem;
-  padding: 1rem 3rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin: 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .hstat {
@@ -406,7 +394,7 @@ img { display: block; max-width: 100%; }
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--white);
+  color: var(--text);
   letter-spacing: 0.5px;
 }
 
@@ -416,13 +404,13 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-3);
 }
 
 .hstat-divider {
   width: 1px;
   height: 36px;
-  background: rgba(255,255,255,0.1);
+  background: var(--border);
 }
 
 
@@ -2175,10 +2163,9 @@ img { display: block; max-width: 100%; }
     padding: calc(var(--topbar-h) + 1.25rem) 1.25rem calc(var(--bottomnav-h) + 1.5rem);
   }
 
-  .hero { padding: 2rem 1.5rem 0; }
-  .hero-headline { font-size: 3rem; }
-  .hero-pitch-svg { width: 80%; right: -20px; }
-  .hero-stats-strip { margin: 0 -1.5rem; padding: 1rem 1.5rem; }
+  .hero { padding: 0; }
+  .hero-headline { font-size: 2.8rem; }
+  .hero-stats-strip { margin: 0; padding: 1rem 1.25rem; }
 
   .dashboard-row { grid-template-columns: repeat(2, 1fr); }
   .games-grid { grid-template-columns: 1fr; }
@@ -2202,10 +2189,280 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-  .hero { padding: 1.75rem 1.25rem 0; }
-  .hero-stats-strip { margin: 0 -1.25rem; padding: 0.75rem 1.25rem; }
+  .hero { padding: 0; }
+  .hero-stats-strip { padding: 0.75rem 1rem; }
   .dashboard-row { grid-template-columns: 1fr 1fr; }
   .game-panel-inner { padding: 1.25rem; }
   .builder-controls { grid-template-columns: 1fr; }
   .profile-card { padding: 1.5rem; }
+}
+
+
+/* ============================================================
+   WELCOME MODAL
+   ============================================================ */
+#welcomeModal {
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.welcome-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: modalIn 0.25s var(--ease);
+}
+
+/* Header */
+.wm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.wm-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wm-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.wm-brand-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.wm-brand-sub {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-3);
+}
+
+/* Tab Nav */
+.wm-tabs {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.wm-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+
+.wm-tab i.ph { font-size: 0.9rem; }
+
+.wm-tab:hover { border-color: var(--green); color: var(--green-dark); }
+
+.wm-tab.active {
+  background: var(--text);
+  color: var(--white);
+  border-color: var(--text);
+}
+
+/* Body */
+.wm-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.wm-body--hidden { display: none; }
+
+.wm-intro {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Games List (How It Works tab) */
+.wm-games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wm-game-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+
+.wm-game-item:hover { border-color: var(--border-strong); }
+
+.wm-game-item--featured {
+  border-color: rgba(0, 192, 107, 0.35);
+  background: var(--green-pale);
+}
+
+.wm-game-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.wm-game-icon i.ph { font-size: 1.2rem; }
+
+.wm-game-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.wm-game-info strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.wm-game-info span {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  line-height: 1.45;
+}
+
+.wm-game-reward {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: #fff8ec;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Facts Grid (Football Facts tab) */
+.wm-facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.wm-fact-card {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  align-items: flex-start;
+}
+
+.wm-fact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--green-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-dark);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.wm-fact-icon i.ph { font-size: 1rem; }
+
+.wm-fact-content strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.wm-fact-content p {
+  font-size: 0.76rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* Footer */
+.wm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.wm-footer-note {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+.wm-start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--green);
+  color: var(--white);
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.wm-start-btn:hover { background: var(--green-dark); transform: translateY(-1px); }
+.wm-start-btn i.ph { font-size: 1rem; }
+
+/* Responsive adjustments for welcome modal */
+@media (max-width: 600px) {
+  .welcome-card { max-height: 92vh; border-radius: var(--radius-md); }
+  .wm-facts-grid { grid-template-columns: 1fr; }
+  .wm-footer { flex-direction: column; align-items: stretch; text-align: center; }
+  .wm-start-btn { justify-content: center; }
 }

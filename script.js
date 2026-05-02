@@ -99,6 +99,7 @@ function injectBadge(container, badgePath, clubName, imgClass = "club-badge-img"
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
   loadState();
+  loadSettings();          // NEW: load theme + language from localStorage
   setupNavigation();
   setupKeyboardShortcuts();
   initAllGames();
@@ -106,6 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
   updateAllUI();
   renderAchievements();
   renderRanking();
+  renderCuriosidades();    // NEW: render curiosidades section
+  initWelcomeModal();
+  applyTranslations();     // NEW: apply i18n after all DOM is ready
 });
 
 // ============================================================
@@ -122,6 +126,41 @@ function loadState() {
 function saveState() {
   localStorage.setItem("pitacofc_state", JSON.stringify(state));
 }
+
+// ============================================================
+// WELCOME MODAL
+// ============================================================
+function initWelcomeModal() {
+  const seen = localStorage.getItem("pitacofc_welcome_seen");
+  if (!seen) {
+    const overlay = document.getElementById("welcomeModal");
+    overlay.classList.add("open");
+  }
+}
+
+function closeWelcomeModal() {
+  localStorage.setItem("pitacofc_welcome_seen", "1");
+  const overlay = document.getElementById("welcomeModal");
+  overlay.classList.remove("open");
+}
+
+function switchWmTab(tabId, btn) {
+  // Toggle tab buttons
+  document.querySelectorAll(".wm-tab").forEach(t => t.classList.remove("active"));
+  btn.classList.add("active");
+
+  // Toggle tab bodies
+  document.getElementById("wm-howto").classList.add("wm-body--hidden");
+  document.getElementById("wm-facts").classList.add("wm-body--hidden");
+  document.getElementById("wm-" + tabId).classList.remove("wm-body--hidden");
+}
+
+// Close welcome modal on overlay click (outside card)
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("welcomeModal").addEventListener("click", function(e) {
+    if (e.target === this) closeWelcomeModal();
+  });
+});
 
 // ============================================================
 // NAVIGATION
@@ -164,8 +203,9 @@ function navigateTo(pageId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
   updateAllUI();
 
-  if (pageId === "profile")  renderAchievements();
-  if (pageId === "ranking")  renderRanking();
+  if (pageId === "profile")     renderAchievements();
+  if (pageId === "ranking")     renderRanking();
+  if (pageId === "curiosities") renderCuriosidades();
 }
 
 function setupKeyboardShortcuts() {
@@ -1145,3 +1185,395 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// ============================================================
+// SETTINGS — PERSISTENCE (Tema + Idioma)
+// ============================================================
+
+let appSettings = {
+  language: "pt",   // "pt" | "en"
+  theme: "normal"   // "normal" | "inverted"
+};
+
+function loadSettings() {
+  const saved = localStorage.getItem("pitacofc_settings");
+  if (saved) {
+    try { Object.assign(appSettings, JSON.parse(saved)); }
+    catch(e) { console.warn("Failed to load settings"); }
+  }
+  // Apply theme immediately on load (prevents flash)
+  applyTheme(appSettings.theme, false);
+  updateSettingsUI();
+}
+
+function saveSettings() {
+  localStorage.setItem("pitacofc_settings", JSON.stringify(appSettings));
+}
+
+// ============================================================
+// SISTEMA DE TEMA (Inversão de Cores)
+// ============================================================
+
+function toggleTheme() {
+  const newTheme = appSettings.theme === "normal" ? "inverted" : "normal";
+  applyTheme(newTheme, true);
+  appSettings.theme = newTheme;
+  saveSettings();
+  updateSettingsUI();
+  showToast(
+    newTheme === "inverted"
+      ? (appSettings.language === "pt" ? "Tema invertido ativado!" : "Inverted theme activated!")
+      : (appSettings.language === "pt" ? "Tema padrão restaurado!" : "Default theme restored!"),
+    "success"
+  );
+}
+
+function applyTheme(theme, animate) {
+  const body = document.body;
+  if (animate) {
+    body.style.transition = "background 0.3s, color 0.3s";
+    setTimeout(() => { body.style.transition = ""; }, 400);
+  }
+  if (theme === "inverted") {
+    body.classList.add("theme-inverted");
+  } else {
+    body.classList.remove("theme-inverted");
+  }
+}
+
+function updateSettingsUI() {
+  // Theme toggle track
+  const track = document.querySelector(".theme-toggle-track");
+  if (track) {
+    track.classList.toggle("active", appSettings.theme === "inverted");
+  }
+
+  // Language buttons
+  const btnPT = document.getElementById("langBtnPT");
+  const btnEN = document.getElementById("langBtnEN");
+  if (btnPT) btnPT.classList.toggle("active", appSettings.language === "pt");
+  if (btnEN) btnEN.classList.toggle("active", appSettings.language === "en");
+}
+
+// ============================================================
+// SISTEMA DE IDIOMA (PT / EN)
+// ============================================================
+
+const translations = {
+  pt: {
+    nav_home:            "Home",
+    nav_games:           "Mini-Games",
+    nav_games_short:     "Games",
+    nav_builder:         "Team Builder",
+    nav_builder_short:   "Builder",
+    nav_ranking:         "Ranking",
+    nav_curiosidades:    "Curiosidades",
+    nav_curio_short:     "Curios.",
+    nav_profile:         "Profile",
+    nav_settings:        "Configurações",
+    nav_settings_short:  "Config.",
+    label_balance:       "Saldo",
+    hero_kicker:         "Plataforma de Inteligência Futebolística",
+    hero_headline:       "Monte o<br><em>Time Perfeito.</em>",
+    hero_body:           "Teste seus conhecimentos nos mini-games, ganhe moedas e monte o seu sonho. Estratégia e paixão.",
+    cta_play:            "Jogar Agora",
+    cta_build:           "Montar Time",
+    hstat_players:       "Jogadores",
+    hstat_clubs:         "Clubes",
+    hstat_games:         "Games",
+    hstat_streak:        "Melhor Sequência",
+    dash_coins:          "Saldo de Moedas",
+    dash_value:          "Valor do Time",
+    dash_played:         "Jogos Disputados",
+    dash_accuracy:       "Precisão",
+    games_sub:           "Ganhe moedas. Expanda seu time.",
+    games_sub2:          "Escolha um desafio e ganhe moedas",
+    view_all:            "Ver todos",
+    game_guessTeam:      "Adivinhe o Time",
+    game_guessTeam_sub:  "Identifique o clube pelo escudo borrado",
+    game_missingLink:    "Elo Perdido",
+    game_missingLink_sub:"Encontre o jogador que une dois clubes",
+    game_career:         "Carreira do Jogador",
+    game_career_sub:     "Adivinhe o jogador pelo histórico de clubes",
+    game_tof:            "Verdade ou Mito",
+    game_tof_sub:        "Este jogador realmente atuou neste clube?",
+    game_budget:         "Time com Orçamento",
+    game_budget_sub:     "Monte o melhor time dentro do seu orçamento",
+    ctrl_formation:      "Formação",
+    ctrl_stats:          "Estatísticas do Time",
+    ctrl_budget:         "Orçamento",
+    ctrl_teamval:        "Valor do Time",
+    ctrl_players:        "Jogadores",
+    btn_clear:           "Limpar Elenco",
+    squad_list:          "Lista do Elenco",
+    squad_empty:         "Nenhum jogador selecionado",
+    ranking_sub:         "Melhores managers da plataforma",
+    leaderboard:         "Placar",
+    ranking_manager:     "Manager",
+    ranking_coins:       "Moedas",
+    ranking_teamval:     "Valor do Time",
+    ranking_accuracy:    "Precisão",
+    your_rank:           "Sua Posição",
+    nav_profile:         "Perfil",
+    profile_sub:         "Suas estatísticas e conquistas",
+    stat_coins:          "Moedas",
+    stat_teamval:        "Valor do Time",
+    stat_games:          "Jogos",
+    stat_streak:         "Melhor Sequência",
+    stat_correct:        "Acertos",
+    stat_accuracy:       "Precisão",
+    btn_save:            "Salvar",
+    btn_reset:           "Resetar",
+    achievements:        "Conquistas",
+    curiosidades_sub:    "Fatos surpreendentes do mundo do futebol",
+    filter_all:          "Todos",
+    filter_wc:           "Copa do Mundo",
+    filter_records:      "Recordes",
+    filter_legends:      "Lendas",
+    filter_bizarre:      "Bizarrices",
+    filter_clubs:        "Clubes",
+    filter_controversies:"Controvérsias",
+    settings_sub:        "Personalize sua experiência",
+    settings_lang_title: "Idioma / Language",
+    settings_lang_sub:   "Escolha o idioma da interface",
+    settings_theme_title:"Tema / Theme",
+    settings_theme_sub:  "Inverta o esquema de cores do site",
+    settings_about_title:"Sobre o App",
+    settings_about_sub:  "Informações da plataforma",
+    about_version:       "Versão",
+    about_curiosities:   "Curiosidades",
+    about_games:         "Mini-Games",
+    theme_normal:        "Padrão",
+    theme_inverted:      "Invertido",
+    modal_select:        "Selecionar Jogador",
+    credits_text:        "Site criado por <strong>kzincks</strong>",
+    builder_sub:         "Monte seu time dos sonhos"
+  },
+  en: {
+    nav_home:            "Home",
+    nav_games:           "Mini-Games",
+    nav_games_short:     "Games",
+    nav_builder:         "Team Builder",
+    nav_builder_short:   "Builder",
+    nav_ranking:         "Ranking",
+    nav_curiosidades:    "Trivia",
+    nav_curio_short:     "Trivia",
+    nav_profile:         "Profile",
+    nav_settings:        "Settings",
+    nav_settings_short:  "Settings",
+    label_balance:       "Balance",
+    hero_kicker:         "Football Intelligence Platform",
+    hero_headline:       "Build the<br><em>Perfect Squad.</em>",
+    hero_body:           "Test your knowledge with mini-games, earn coins, and assemble your dream team. Strategy meets passion.",
+    cta_play:            "Play Now",
+    cta_build:           "Build Team",
+    hstat_players:       "Players",
+    hstat_clubs:         "Clubs",
+    hstat_games:         "Games",
+    hstat_streak:        "Best Streak",
+    dash_coins:          "Coin Balance",
+    dash_value:          "Team Value",
+    dash_played:         "Games Played",
+    dash_accuracy:       "Accuracy",
+    games_sub:           "Earn coins. Expand your squad.",
+    games_sub2:          "Choose a challenge and earn coins",
+    view_all:            "View all",
+    game_guessTeam:      "Guess the Team",
+    game_guessTeam_sub:  "Identify the club from a blurred badge",
+    game_missingLink:    "Missing Link",
+    game_missingLink_sub:"Find the player who connects two clubs",
+    game_career:         "Player Career",
+    game_career_sub:     "Guess the player from their club history",
+    game_tof:            "True or False",
+    game_tof_sub:        "Did this player really play for that club?",
+    game_budget:         "Budget Squad",
+    game_budget_sub:     "Build the best team within your budget",
+    ctrl_formation:      "Formation",
+    ctrl_stats:          "Squad Stats",
+    ctrl_budget:         "Budget",
+    ctrl_teamval:        "Team Value",
+    ctrl_players:        "Players",
+    btn_clear:           "Clear Squad",
+    squad_list:          "Squad List",
+    squad_empty:         "No players selected",
+    ranking_sub:         "Top managers on the platform",
+    leaderboard:         "Leaderboard",
+    ranking_manager:     "Manager",
+    ranking_coins:       "Coins",
+    ranking_teamval:     "Team Value",
+    ranking_accuracy:    "Accuracy",
+    your_rank:           "Your Rank",
+    nav_profile:         "Profile",
+    profile_sub:         "Your stats and achievements",
+    stat_coins:          "Coins",
+    stat_teamval:        "Team Value",
+    stat_games:          "Games",
+    stat_streak:         "Best Streak",
+    stat_correct:        "Correct",
+    stat_accuracy:       "Accuracy",
+    btn_save:            "Save",
+    btn_reset:           "Reset",
+    achievements:        "Achievements",
+    curiosidades_sub:    "Surprising facts from the world of football",
+    filter_all:          "All",
+    filter_wc:           "World Cup",
+    filter_records:      "Records",
+    filter_legends:      "Legends",
+    filter_bizarre:      "Bizarre",
+    filter_clubs:        "Clubs",
+    filter_controversies:"Controversies",
+    settings_sub:        "Personalize your experience",
+    settings_lang_title: "Language / Idioma",
+    settings_lang_sub:   "Choose the interface language",
+    settings_theme_title:"Theme / Tema",
+    settings_theme_sub:  "Invert the site's color scheme",
+    settings_about_title:"About the App",
+    settings_about_sub:  "Platform information",
+    about_version:       "Version",
+    about_curiosities:   "Trivia facts",
+    about_games:         "Mini-Games",
+    theme_normal:        "Default",
+    theme_inverted:      "Inverted",
+    modal_select:        "Select Player",
+    credits_text:        "Site created by <strong>kzincks</strong>",
+    builder_sub:         "Assemble your dream squad"
+  }
+};
+
+function setLanguage(lang) {
+  appSettings.language = lang;
+  saveSettings();
+  applyTranslations();
+  updateSettingsUI();
+  // Re-render curiosidades so category names update
+  renderCuriosidades();
+  showToast(
+    lang === "pt" ? "Idioma: Português 🇧🇷" : "Language: English 🇬🇧",
+    "success"
+  );
+}
+
+function applyTranslations() {
+  const lang  = appSettings.language || "pt";
+  const dict  = translations[lang] || translations["pt"];
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) {
+      el.innerHTML = dict[key];
+    }
+  });
+
+  // Update html lang attribute
+  document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+
+  // Update curiosidades counter label
+  const curioCount = document.getElementById("curiositiesCount");
+  if (curioCount && typeof curiosidadesData !== "undefined") {
+    curioCount.textContent = lang === "pt"
+      ? `${curiosidadesData.length} fatos`
+      : `${curiosidadesData.length} facts`;
+  }
+
+  // Update settings curiosities count
+  const settingsCurioCount = document.getElementById("settingsCurioCount");
+  if (settingsCurioCount && typeof curiosidadesData !== "undefined") {
+    settingsCurioCount.textContent = lang === "pt"
+      ? `${curiosidadesData.length} fatos`
+      : `${curiosidadesData.length} facts`;
+  }
+
+  // Update category filter buttons for current language
+  updateCurioFilterLabels(lang);
+}
+
+function updateCurioFilterLabels(lang) {
+  const filterMap = {
+    pt: {
+      "all":             "Todos",
+      "Copa do Mundo":   "Copa do Mundo",
+      "Recordes":        "Recordes",
+      "Lendas":          "Lendas",
+      "Bizarrices":      "Bizarrices",
+      "Clubes":          "Clubes",
+      "Controvérsias":   "Controvérsias"
+    },
+    en: {
+      "all":             "All",
+      "Copa do Mundo":   "World Cup",
+      "Recordes":        "Records",
+      "Lendas":          "Legends",
+      "Bizarrices":      "Bizarre",
+      "Clubes":          "Clubs",
+      "Controvérsias":   "Controversies"
+    }
+  };
+  const map = filterMap[lang] || filterMap["pt"];
+  document.querySelectorAll(".curio-filter-btn").forEach(btn => {
+    const cat = btn.dataset.cat;
+    if (map[cat]) btn.textContent = map[cat];
+  });
+}
+
+// ============================================================
+// CURIOSIDADES — Rendering
+// ============================================================
+
+let curiosidadesCurrentFilter = "all";
+
+function renderCuriosidades() {
+  const grid = document.getElementById("curiositiesGrid");
+  if (!grid || typeof curiosidadesData === "undefined") return;
+
+  const lang = appSettings.language || "pt";
+
+  const filtered = curiosidadesCurrentFilter === "all"
+    ? curiosidadesData
+    : curiosidadesData.filter(c => c.category === curiosidadesCurrentFilter);
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-3);">
+      <i class="ph ph-magnifying-glass" style="font-size:2rem;display:block;margin-bottom:0.75rem;"></i>
+      ${lang === "pt" ? "Nenhuma curiosidade encontrada." : "No facts found."}
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((item, idx) => {
+    const title    = lang === "en" ? item.titleEn    : item.title;
+    const text     = lang === "en" ? item.textEn     : item.text;
+    const category = lang === "en" ? item.categoryEn : item.category;
+
+    return `
+      <div class="curiosity-card" style="--curio-color: ${item.color}">
+        <div class="curiosity-card-top">
+          <div class="curiosity-icon">
+            <i class="ph ${item.icon}"></i>
+          </div>
+          <div class="curiosity-meta">
+            <span class="curiosity-category">${category}</span>
+            <span class="curiosity-title">${title}</span>
+          </div>
+        </div>
+        <p class="curiosity-text">${text}</p>
+        <span class="curiosity-card-num">#${String(item.id).padStart(2, "0")}</span>
+      </div>`;
+  }).join("");
+
+  // Update counter
+  const counter = document.getElementById("curiositiesCount");
+  if (counter) {
+    counter.textContent = lang === "pt"
+      ? `${filtered.length} fatos`
+      : `${filtered.length} facts`;
+  }
+}
+
+function filterCuriosidades(cat, btn) {
+  curiosidadesCurrentFilter = cat;
+
+  // Update active filter button
+  document.querySelectorAll(".curio-filter-btn").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  renderCuriosidades();
+}
